@@ -31,5 +31,10 @@ export const services = [
     title: "Microservicii",
     description:
       "Pot proiecta, dezvolta și integra microservicii în aplicații web pentru fluxuri de date mai flexibile și ușor de extins."
+  },
+  {
+    title: "Integrare AI",
+    description:
+      "Integrez funcționalități AI în website-uri și aplicații web pentru automatizare, asistență conversațională și fluxuri de lucru mai eficiente."
   }
 ];

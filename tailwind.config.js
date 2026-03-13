@@ -4,11 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["'Space Grotesk'", "sans-serif"],
+        heading: ["'Cormorant Garamond'", "serif"],
         body: ["'Manrope'", "sans-serif"]
-      },
-      boxShadow: {
-        glow: "0 0 60px -20px rgba(56, 189, 248, 0.65)"
       }
     }
   },
