@@ -10,5 +10,17 @@ export const projects = [
     liveUrl: "https://site-avocat-theta.vercel.app/",
     githubUrl: "https://github.com/eduard-ghitun/site-eduard",
     featured: true
+  },
+  {
+    title: "ServiceAuto",
+    description:
+      "Site de prezentare modern pentru service auto, realizat cu design responsive, structură clară și focus pe prezentarea serviciilor într-un mod profesionist.",
+    technologies: ["React", "Vite", "Responsive Design", "UI/UX"],
+    previewImage: "/projects/serviceauto-preview.svg",
+    previewImageTablet: "/projects/serviceauto-preview-tablet.svg",
+    previewImageMobile: "/projects/serviceauto-preview-mobile.svg",
+    liveUrl: "https://site-serviceauto.vercel.app/",
+    githubUrl: "https://github.com/eduard-ghitun/site-serviceauto",
+    featured: false
   }
 ];

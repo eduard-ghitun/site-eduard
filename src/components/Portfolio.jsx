@@ -69,11 +69,13 @@ const Portfolio = () => {
       </div>
 
       <div
-        className={`grid gap-5 md:gap-7 ${
-          isSingleProject ? "mx-auto max-w-5xl grid-cols-1" : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
-        }`}
+        className={`grid grid-cols-1 gap-8 md:gap-10 lg:gap-12 ${isSingleProject ? "mx-auto max-w-5xl" : ""}`}
       >
         {projects.map((project, index) => {
+          const primaryUrl = project.liveUrl || project.githubUrl;
+          const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "Vezi pe GitHub";
+          const showGithubButton = Boolean(project.githubUrl);
+
           return (
             <motion.article
               key={project.title}
@@ -86,8 +88,8 @@ const Portfolio = () => {
                 project.featured && !isSingleProject ? "md:col-span-2 xl:col-span-2" : ""
               }`}
               >
-              <div className="grid gap-6 md:gap-8 lg:grid-cols-[1fr_0.92fr] lg:gap-10">
-                <div className="min-w-0">
+              <div className="grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.92fr)] lg:items-center lg:gap-10">
+                <div className="order-2 min-w-0 lg:order-1">
                   <div className="flex min-w-0 flex-wrap items-center justify-between gap-3">
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-stone-500">
                       Proiect {String(index + 1).padStart(2, "0")}
@@ -116,15 +118,21 @@ const Portfolio = () => {
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-stone-100 px-5 py-2.5 text-sm font-semibold text-stone-950 transition duration-300 hover:-translate-y-0.5 hover:bg-white md:min-w-[11rem] md:w-auto"
-                    >
-                      Vizualizează proiect
-                    </a>
-                    {project.githubUrl ? (
+                    {primaryUrl ? (
+                      <a
+                        href={primaryUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-stone-100 px-5 py-2.5 text-sm font-semibold text-stone-950 transition duration-300 hover:-translate-y-0.5 hover:bg-white md:min-w-[11rem] md:w-auto"
+                      >
+                        {primaryLabel}
+                      </a>
+                    ) : (
+                      <span className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full border border-white/10 bg-white/[0.02] px-5 py-2.5 text-sm font-semibold text-stone-500 md:min-w-[9rem] md:w-auto">
+                        Link în curând
+                      </span>
+                    )}
+                    {showGithubButton ? (
                       <a
                         href={project.githubUrl}
                         target="_blank"
@@ -133,22 +141,20 @@ const Portfolio = () => {
                       >
                         View on GitHub
                       </a>
-                    ) : (
-                      <span className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full border border-white/10 bg-white/[0.02] px-5 py-2.5 text-sm font-semibold text-stone-500 md:min-w-[9rem] md:w-auto">
-                        GitHub în curând
-                      </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 
-                <ProjectStage
-                  title={project.title}
-                  technologies={project.technologies}
-                  index={index}
-                  previewImage={project.previewImage}
-                  previewImageTablet={project.previewImageTablet}
-                  previewImageMobile={project.previewImageMobile}
-                />
+                <div className="order-1 w-full lg:order-2 lg:max-w-[36rem] lg:justify-self-end">
+                  <ProjectStage
+                    title={project.title}
+                    technologies={project.technologies}
+                    index={index}
+                    previewImage={project.previewImage}
+                    previewImageTablet={project.previewImageTablet}
+                    previewImageMobile={project.previewImageMobile}
+                  />
+                </div>
               </div>
             </motion.article>
           );

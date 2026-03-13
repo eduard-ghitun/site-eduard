@@ -1,0 +1,61 @@
+<svg width="960" height="1200" viewBox="0 0 960 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="serviceautoTabletTitle serviceautoTabletDesc">
+  <title id="serviceautoTabletTitle">ServiceAuto tablet preview</title>
+  <desc id="serviceautoTabletDesc">Premium tablet preview for the ServiceAuto project card.</desc>
+  <rect width="960" height="1200" rx="40" fill="#08090B"/>
+  <rect x="28" y="28" width="904" height="1144" rx="32" fill="url(#bg)"/>
+  <rect x="64" y="64" width="832" height="64" rx="22" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="102" cy="96" r="8" fill="#F87171"/>
+  <circle cx="128" cy="96" r="8" fill="#FBBF24"/>
+  <circle cx="154" cy="96" r="8" fill="#34D399"/>
+  <rect x="192" y="79" width="192" height="34" rx="17" fill="rgba(255,255,255,0.06)"/>
+  <rect x="668" y="79" width="98" height="34" rx="17" fill="rgba(255,255,255,0.06)"/>
+  <rect x="782" y="79" width="86" height="34" rx="17" fill="url(#accent)"/>
+  <rect x="64" y="156" width="832" height="392" rx="34" fill="url(#hero)"/>
+  <rect x="104" y="202" width="146" height="28" rx="14" fill="rgba(157,214,223,0.16)"/>
+  <rect x="104" y="254" width="402" height="92" rx="20" fill="rgba(255,255,255,0.06)"/>
+  <rect x="104" y="370" width="340" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+  <rect x="104" y="404" width="286" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+  <rect x="104" y="448" width="156" height="22" rx="11" fill="#D6E6EA"/>
+  <rect x="556" y="224" width="292" height="278" rx="28" fill="rgba(7,11,14,0.66)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="582" y="250" width="240" height="168" rx="22" fill="url(#carGlow)"/>
+  <path d="M630 362C645 334 669 318 709 312H749C770 312 790 321 804 339L822 362V390C822 399 815 406 806 406H800C795 425 780 438 760 438C739 438 724 425 719 406H684C679 425 664 438 644 438C623 438 608 425 603 406H598C589 406 582 399 582 390V365L604 344C614 334 621 327 630 362Z" fill="#DCEFF3" fill-opacity="0.9"/>
+  <circle cx="646" cy="406" r="26" fill="#101518"/>
+  <circle cx="760" cy="406" r="26" fill="#101518"/>
+  <circle cx="646" cy="406" r="11" fill="#8FD6E0"/>
+  <circle cx="760" cy="406" r="11" fill="#8FD6E0"/>
+  <rect x="64" y="586" width="832" height="546" rx="32" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="104" y="628" width="206" height="26" rx="13" fill="rgba(255,255,255,0.08)"/>
+  <rect x="104" y="682" width="752" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+  <rect x="104" y="716" width="666" height="16" rx="8" fill="rgba(255,255,255,0.08)"/>
+  <rect x="104" y="770" width="224" height="104" rx="24" fill="url(#accentSoft)"/>
+  <rect x="352" y="770" width="224" height="104" rx="24" fill="rgba(255,255,255,0.05)"/>
+  <rect x="600" y="770" width="224" height="104" rx="24" fill="rgba(255,255,255,0.05)"/>
+  <rect x="104" y="912" width="354" height="174" rx="28" fill="rgba(255,255,255,0.05)"/>
+  <rect x="484" y="912" width="372" height="48" rx="20" fill="rgba(255,255,255,0.06)"/>
+  <rect x="484" y="976" width="372" height="48" rx="20" fill="rgba(255,255,255,0.06)"/>
+  <rect x="484" y="1040" width="372" height="46" rx="20" fill="url(#accent)"/>
+  <defs>
+    <linearGradient id="bg" x1="84" y1="76" x2="860" y2="1155" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141518"/>
+      <stop offset="0.52" stop-color="#0F1114"/>
+      <stop offset="1" stop-color="#090A0C"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="87" y1="176" x2="886" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172228"/>
+      <stop offset="0.56" stop-color="#10181D"/>
+      <stop offset="1" stop-color="#0B0E11"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="782" y1="79" x2="868" y2="113" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9DD6DF"/>
+      <stop offset="1" stop-color="#C3EBF2"/>
+    </linearGradient>
+    <linearGradient id="accentSoft" x1="104" y1="770" x2="328" y2="874" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#88C8D2"/>
+      <stop offset="1" stop-color="#5E8F97"/>
+    </linearGradient>
+    <radialGradient id="carGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(702 334) rotate(90) scale(134 166)">
+      <stop stop-color="#21414A"/>
+      <stop offset="1" stop-color="#0D1317"/>
+    </radialGradient>
+  </defs>
+</svg>
