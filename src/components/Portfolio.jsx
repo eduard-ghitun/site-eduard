@@ -49,7 +49,6 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
 );
 
 const Portfolio = () => {
-  const isSingleProject = projects.length === 1;
   const { isMobile, isTablet, isTouch } = useViewportProfile();
   const isCompact = isMobile || isTablet;
 
@@ -68,9 +67,7 @@ const Portfolio = () => {
         ))}
       </div>
 
-      <div
-        className={`grid grid-cols-1 gap-8 md:gap-10 lg:gap-12 ${isSingleProject ? "mx-auto max-w-5xl" : ""}`}
-      >
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:gap-10 lg:gap-12">
         {projects.map((project, index) => {
           const primaryUrl = project.liveUrl || project.githubUrl;
           const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "Vezi pe GitHub";
@@ -84,10 +81,8 @@ const Portfolio = () => {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: isCompact ? 0.32 : 0.5, delay: index * (isCompact ? 0.03 : 0.06), ease: [0.22, 1, 0.36, 1] }}
               whileHover={isTouch || isTablet ? undefined : { y: -4 }}
-              className={`surface-card min-w-0 rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-10 ${
-                project.featured && !isSingleProject ? "md:col-span-2 xl:col-span-2" : ""
-              }`}
-              >
+              className="surface-card w-full min-w-0 rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-10"
+            >
               <div className="grid gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.92fr)] lg:items-center lg:gap-10">
                 <div className="order-2 min-w-0 lg:order-1">
                   <div className="flex min-w-0 flex-wrap items-center justify-between gap-3">
