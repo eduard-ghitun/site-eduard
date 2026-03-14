@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading";
 import { projects } from "../data/projects";
 import useViewportProfile from "../hooks/useViewportProfile";
 
-const ProjectStage = ({ title, technologies, index, previewImage, previewImageTablet, previewImageMobile }) => (
+const ProjectStage = ({ title, technologies, index, previewImage, previewImageTablet, previewImageMobile, previewMode }) => (
   <div className="relative min-h-[16.5rem] overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-[radial-gradient(circle_at_top,rgba(143,170,178,0.18),transparent_34%),linear-gradient(180deg,rgba(22,22,25,0.86),rgba(11,11,13,0.92))] p-5 md:min-h-[21rem] md:p-8">
     <div className="absolute inset-5 overflow-hidden rounded-[1.4rem] border border-white/[0.08] md:inset-6">
       {previewImage ? (
@@ -15,7 +15,7 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
               .join(", ")}
             sizes="(max-width: 767px) 100vw, (max-width: 1279px) 70vw, 40vw"
             alt={`Preview ${title}`}
-            className="h-full w-full object-contain object-top sm:object-cover"
+            className={`h-full w-full ${previewMode === "screenshot" ? "object-cover object-top" : "object-contain object-top sm:object-cover"}`}
             loading="lazy"
             decoding="async"
           />
@@ -31,19 +31,21 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
         {String(index + 1).padStart(2, "0")}
       </span>
     </div>
-    <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8 md:right-8">
-      <p className="max-w-sm font-heading text-[2rem] leading-[0.94] text-stone-50 md:text-[3.2rem]">{title}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {technologies.slice(0, 3).map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-white/[0.08] bg-black/20 px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em] text-stone-300"
-          >
-            {tag}
-          </span>
-        ))}
+    {previewMode !== "screenshot" ? (
+      <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8 md:right-8">
+        <p className="max-w-sm font-heading text-[2rem] leading-[0.94] text-stone-50 md:text-[3.2rem]">{title}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {technologies.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/[0.08] bg-black/20 px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em] text-stone-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    ) : null}
     <div className="pointer-events-none absolute -right-10 top-1/2 h-40 w-40 -translate-y-1/2 rounded-full border border-white/[0.08]" />
   </div>
 );
@@ -148,6 +150,7 @@ const Portfolio = () => {
                     previewImage={project.previewImage}
                     previewImageTablet={project.previewImageTablet}
                     previewImageMobile={project.previewImageMobile}
+                    previewMode={project.previewMode}
                   />
                 </div>
               </div>

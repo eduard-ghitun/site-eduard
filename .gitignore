@@ -1,3 +1,5 @@
 node_modules
 dist
 .vercel
+.chrome-*
+public/projects/serviceauto-services-desktop.png
