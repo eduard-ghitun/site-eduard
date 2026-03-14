@@ -22,5 +22,17 @@ export const projects = [
     liveUrl: "https://site-serviceauto.vercel.app/",
     githubUrl: "https://github.com/eduard-ghitun/site-serviceauto",
     featured: false
+  },
+  {
+    title: "Site Automotive",
+    description:
+      "Website de prezentare pentru zona automotive, cu layout modern, secțiuni clare pentru servicii și o interfață construită pentru impact vizual și navigare rapidă.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Responsive Design"],
+    previewImage: "/projects/automotive-preview.svg",
+    previewImageTablet: "/projects/automotive-preview-tablet.svg",
+    previewImageMobile: "/projects/automotive-preview-mobile.svg",
+    liveUrl: "https://www.northside.ro/",
+    githubUrl: "https://github.com/eduard-ghitun/site-northway",
+    featured: false
   }
 ];

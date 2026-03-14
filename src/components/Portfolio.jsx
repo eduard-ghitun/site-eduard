@@ -74,7 +74,7 @@ const Portfolio = () => {
         {projects.map((project, index) => {
           const primaryUrl = project.liveUrl || project.githubUrl;
           const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "Vezi pe GitHub";
-          const showGithubButton = Boolean(project.githubUrl);
+          const showGithubButton = Boolean(project.githubUrl && project.liveUrl);
 
           return (
             <motion.article

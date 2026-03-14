@@ -1,0 +1,62 @@
+<svg width="640" height="1120" viewBox="0 0 640 1120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="automotiveMobileTitle automotiveMobileDesc">
+  <title id="automotiveMobileTitle">Site Automotive mobile preview</title>
+  <desc id="automotiveMobileDesc">Mobile preview for the Site Automotive project card.</desc>
+  <rect width="640" height="1120" rx="32" fill="#08090B"/>
+  <rect x="20" y="20" width="600" height="1080" rx="28" fill="url(#bg)"/>
+  <rect x="44" y="44" width="552" height="52" rx="18" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="74" cy="70" r="6" fill="#F87171"/>
+  <circle cx="96" cy="70" r="6" fill="#FBBF24"/>
+  <circle cx="118" cy="70" r="6" fill="#34D399"/>
+  <rect x="146" y="57" width="144" height="24" rx="12" fill="rgba(255,255,255,0.06)"/>
+  <rect x="444" y="57" width="62" height="24" rx="12" fill="rgba(255,255,255,0.06)"/>
+  <rect x="518" y="57" width="56" height="24" rx="12" fill="url(#accent)"/>
+  <rect x="44" y="116" width="552" height="344" rx="28" fill="url(#hero)"/>
+  <rect x="72" y="148" width="128" height="22" rx="11" fill="rgba(255,122,61,0.18)"/>
+  <rect x="72" y="190" width="326" height="86" rx="18" fill="rgba(255,255,255,0.07)"/>
+  <rect x="72" y="298" width="264" height="16" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <rect x="72" y="328" width="224" height="16" rx="8" fill="rgba(255,255,255,0.09)"/>
+  <rect x="72" y="368" width="132" height="20" rx="10" fill="#FFE4D5"/>
+  <rect x="430" y="162" width="124" height="214" rx="22" fill="rgba(7,10,14,0.62)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="446" y="178" width="92" height="120" rx="18" fill="url(#glow)"/>
+  <path d="M462 260C471 240 487 229 514 225H532C548 225 562 232 571 245L582 260V281C582 288 576 294 569 294H566C562 309 551 318 537 318C522 318 511 309 507 294H482C478 309 467 318 452 318C437 318 426 309 422 294H419C412 294 406 288 406 281V262L422 247C429 241 435 237 462 260Z" transform="translate(40 0)" fill="#F7F1ED" fill-opacity="0.92"/>
+  <circle cx="488" cy="294" r="18" fill="#14171B"/>
+  <circle cx="536" cy="294" r="18" fill="#14171B"/>
+  <circle cx="488" cy="294" r="8" fill="#FF7A3D"/>
+  <circle cx="536" cy="294" r="8" fill="#FF7A3D"/>
+  <path d="M448 168C470 142 505 123 554 114" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8 8"/>
+  <rect x="72" y="494" width="496" height="252" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="100" y="522" width="214" height="22" rx="11" fill="rgba(255,255,255,0.08)"/>
+  <rect x="100" y="566" width="368" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+  <rect x="100" y="598" width="302" height="16" rx="8" fill="rgba(255,255,255,0.08)"/>
+  <rect x="100" y="644" width="368" height="74" rx="22" fill="url(#panel)"/>
+  <rect x="72" y="778" width="496" height="278" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="100" y="810" width="188" height="22" rx="11" fill="rgba(255,255,255,0.08)"/>
+  <rect x="100" y="854" width="166" height="124" rx="22" fill="rgba(255,255,255,0.05)"/>
+  <rect x="286" y="854" width="250" height="42" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <rect x="286" y="912" width="250" height="42" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <rect x="286" y="970" width="250" height="42" rx="18" fill="url(#accent)"/>
+  <defs>
+    <linearGradient id="bg" x1="54" y1="50" x2="566" y2="1084" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#15161B"/>
+      <stop offset="0.54" stop-color="#0E1116"/>
+      <stop offset="1" stop-color="#090A0D"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="58" y1="128" x2="576" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A1711"/>
+      <stop offset="0.5" stop-color="#171113"/>
+      <stop offset="1" stop-color="#0D0E12"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="518" y1="57" x2="574" y2="81" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7A3D"/>
+      <stop offset="1" stop-color="#FFB36B"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="100" y1="644" x2="468" y2="718" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D85F33"/>
+      <stop offset="1" stop-color="#8D3A20"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(492 238) rotate(90) scale(96 72)">
+      <stop stop-color="#5B2415"/>
+      <stop offset="1" stop-color="#151016"/>
+    </radialGradient>
+  </defs>
+</svg>
