@@ -6,24 +6,34 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import GlobalBackground from "./components/GlobalBackground";
+import CursorTrail from "./components/CursorTrail";
+import MouseSpotlight from "./components/MouseSpotlight";
+import { SectionUIProvider } from "./context/SectionUIContext";
+import useAppViewportHeight from "./hooks/useAppViewportHeight";
 
 const App = () => {
+  useAppViewportHeight();
+
   return (
     <div className="site-shell text-stone-100">
-      <GlobalBackground />
-      <div className="site-content">
-        <Navbar />
+      <SectionUIProvider>
+        <GlobalBackground />
+        <CursorTrail />
+        <MouseSpotlight />
+        <div className="site-content">
+          <Navbar />
 
-        <main className="relative">
-          <Hero />
-          <About />
-          <Services />
-          <Portfolio />
-          <Contact />
-        </main>
+          <main className="relative">
+            <Hero />
+            <About />
+            <Services />
+            <Portfolio />
+            <Contact />
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </SectionUIProvider>
     </div>
   );
 };

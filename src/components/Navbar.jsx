@@ -1,8 +1,9 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import AnimatedLogo from "./AnimatedLogo";
 import { navItems } from "../data/siteData";
-import { brandAssets } from "../data/brandAssets";
+import { useSectionUI } from "../context/SectionUIContext";
 import useNavbarScrolled from "../hooks/useNavbarScrolled";
 
 const Navbar = () => {
@@ -11,6 +12,7 @@ const Navbar = () => {
   const toggleRef = useRef(null);
   const isScrolled = useNavbarScrolled(28);
   const prefersReducedMotion = useReducedMotion();
+  const { activeSection } = useSectionUI();
 
   useEffect(() => {
     document.body.style.overflow = "";
@@ -69,19 +71,19 @@ const Navbar = () => {
     ? ""
     : "duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]";
   const rowPadding = isScrolled
-    ? "px-4 py-3 sm:px-5 md:px-6 md:py-[0.875rem] lg:px-8"
-    : "px-4 py-4 sm:px-6 md:px-8 md:py-[1.125rem] lg:px-12";
+    ? "px-4 py-3 sm:px-5 md:px-6 md:py-[0.9rem] lg:px-8"
+    : "px-4 py-4 sm:px-6 md:px-8 md:py-[1.1rem] lg:px-12";
   const headerSurface = isScrolled
-    ? "border-white/[0.08] bg-[#09090b]/[0.72] shadow-[0_20px_48px_-32px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-[22px]"
-    : "border-transparent bg-black/[0.02] shadow-none backdrop-blur-0";
-  const menuButtonSurface = isScrolled ? "bg-white/[0.05]" : "bg-white/[0.03]";
+    ? "border-[rgba(121,255,172,0.16)] bg-[#060907]/[0.74] shadow-[0_24px_56px_-34px_rgba(0,0,0,0.88),0_0_28px_rgba(92,255,154,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-[22px]"
+    : "border-[rgba(121,255,172,0.08)] bg-black/[0.22] shadow-[0_18px_44px_-36px_rgba(0,0,0,0.72)] backdrop-blur-[16px]";
+  const menuButtonSurface = isScrolled ? "bg-[rgba(9,18,14,0.9)]" : "bg-[rgba(8,13,11,0.66)]";
   const ctaSurface = isScrolled
-    ? "border-white/10 bg-white/[0.05]"
-    : "border-transparent bg-transparent";
+    ? "border-[rgba(121,255,172,0.16)] bg-[rgba(9,18,14,0.9)]"
+    : "border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.62)]";
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-2 sm:px-4 lg:px-4 lg:pt-3">
+      <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-[calc(0.45rem+env(safe-area-inset-top))] sm:px-4 lg:px-4 lg:pt-[calc(0.75rem+env(safe-area-inset-top))]">
         <motion.div
           initial={false}
           animate={isScrolled ? { y: 0 } : { y: 2 }}
@@ -93,30 +95,15 @@ const Navbar = () => {
             className={`relative overflow-hidden rounded-[1.6rem] border ${headerSurface} ${shellTransition} transition-[background-color,border-color,box-shadow,backdrop-filter]`}
           >
             <div
-              className={`pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),transparent_55%)] transition-opacity duration-300 ease-out [mask-image:linear-gradient(180deg,black,transparent)] md:block ${
+              className={`pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(121,255,172,0.08),transparent_55%)] transition-opacity duration-300 ease-out [mask-image:linear-gradient(180deg,black,transparent)] md:block ${
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(121,255,172,0.36),transparent)]" />
             <div
               className={`mx-auto flex w-full items-center justify-between ${rowPadding} ${shellTransition} transition-[padding]`}
             >
-              <a href="#hero" className="group flex items-center">
-                <div
-                  className={`relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] ${shellTransition} transition-[height,width,background-color,border-color,transform] group-hover:border-white/18 group-hover:bg-white/[0.05] ${
-                    isScrolled
-                      ? "h-[2.35rem] w-[8.15rem] sm:h-[2.55rem] sm:w-[8.85rem] md:h-[2.75rem] md:w-[9.75rem]"
-                      : "h-10 w-[8.75rem] sm:h-11 sm:w-[9.5rem] md:h-12 md:w-[10.5rem]"
-                  }`}
-                >
-                  <img
-                    src={brandAssets.logo}
-                    alt="Logo GDev"
-                    className="h-full w-full object-cover object-center"
-                    decoding="async"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-white/[0.04]" />
-                </div>
-              </a>
+              <AnimatedLogo href="#hero" size="navbar" className="shrink-0" />
 
               <div className="hidden items-center gap-3 lg:flex lg:flex-nowrap lg:gap-5">
                 <div className="flex items-center gap-5 lg:gap-8">
@@ -124,16 +111,25 @@ const Navbar = () => {
                     <a
                       key={item.href}
                       href={item.href}
-                      className={`relative inline-flex items-center whitespace-nowrap text-sm tracking-[0.02em] text-stone-400 ${shellTransition} transition-colors hover:text-stone-100 md:min-h-11 md:py-2`}
+                      className={`relative inline-flex min-h-11 items-center whitespace-nowrap px-1 py-2 text-sm font-medium tracking-[0.03em] ${shellTransition} transition-colors md:min-h-11 ${
+                        activeSection === item.href.slice(1)
+                          ? "text-[color:var(--neon)]"
+                          : "text-[color:var(--muted)] hover:text-[color:var(--text)]"
+                      }`}
                     >
                       {item.label}
+                      <span
+                        className={`absolute inset-x-1 -bottom-[0.12rem] h-px rounded-full bg-[linear-gradient(90deg,transparent,rgba(121,255,172,0.95),transparent)] transition-opacity duration-300 ${
+                          activeSection === item.href.slice(1) ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
                     </a>
                   ))}
                 </div>
 
                 <a
                   href="#contact"
-                  className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-full border px-5 py-2 text-sm font-medium text-stone-100 ${ctaSurface} ${shellTransition} transition-[background-color,border-color,transform] hover:border-[rgba(130,167,178,0.28)] hover:bg-white/[0.07]`}
+                  className={`ui-button ui-button--primary whitespace-nowrap px-5 py-2 text-sm ${ctaSurface} ${shellTransition}`}
                 >
                   Cere ofertă
                 </a>
@@ -143,7 +139,7 @@ const Navbar = () => {
                 ref={toggleRef}
                 type="button"
                 onClick={() => setIsOpen((value) => !value)}
-                className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/10 ${menuButtonSurface} text-stone-100 ${shellTransition} transition-[background-color,border-color,color] hover:border-white/20 hover:bg-white/[0.06] lg:hidden`}
+                className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-[rgba(121,255,172,0.16)] ${menuButtonSurface} text-[color:var(--text)] ${shellTransition} transition-[background-color,border-color,color] hover:border-[rgba(121,255,172,0.34)] hover:bg-[rgba(9,18,14,0.94)] lg:hidden`}
                 aria-label={isOpen ? "Închide meniul" : "Deschide meniul"}
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
@@ -165,7 +161,7 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
+                className="fixed inset-0 z-40 bg-black/78 backdrop-blur-sm lg:hidden"
               />
               <motion.aside
                 id="mobile-menu"
@@ -174,7 +170,7 @@ const Navbar = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed right-0 top-0 z-50 flex h-[100svh] w-[min(24rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-white/10 bg-[#0b0b0d] px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-20 shadow-2xl lg:hidden"
+                className="fixed right-0 top-0 z-50 flex h-[var(--app-height)] w-[min(24rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-[rgba(121,255,172,0.16)] bg-[#050807] px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-20 shadow-[0_0_48px_rgba(92,255,154,0.08)] lg:hidden"
               >
                 <nav className="flex flex-col gap-2">
                   {navItems.map((item) => (
@@ -182,7 +178,11 @@ const Navbar = () => {
                       key={item.href}
                       href={item.href}
                       onClick={closeMenu}
-                      className="inline-flex min-h-11 items-center rounded-xl px-4 text-base font-medium text-stone-300 transition hover:bg-white/[0.05] hover:text-stone-100"
+                      className={`inline-flex min-h-11 items-center rounded-xl px-4 text-base font-medium transition ${
+                        activeSection === item.href.slice(1)
+                          ? "bg-[rgba(121,255,172,0.08)] text-[color:var(--neon)]"
+                          : "text-[color:var(--text-soft)] hover:bg-[rgba(121,255,172,0.04)] hover:text-[color:var(--text)]"
+                      }`}
                     >
                       {item.label}
                     </a>
@@ -191,7 +191,7 @@ const Navbar = () => {
                 <a
                   href="#contact"
                   onClick={closeMenu}
-                  className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full border border-white/10 bg-stone-100 px-5 py-3 text-sm font-semibold text-stone-950"
+                  className="ui-button ui-button--primary mt-6 w-full text-sm"
                 >
                   Cere ofertă
                 </a>
@@ -200,7 +200,7 @@ const Navbar = () => {
           ) : null}
         </AnimatePresence>
       </header>
-      <div aria-hidden="true" className="h-[5rem] sm:h-[5.35rem] lg:h-[6.4rem]" />
+    <div aria-hidden="true" className="h-[calc(5rem+env(safe-area-inset-top))] sm:h-[calc(5.35rem+env(safe-area-inset-top))] lg:h-[calc(6.4rem+env(safe-area-inset-top))]" />
     </>
   );
 };

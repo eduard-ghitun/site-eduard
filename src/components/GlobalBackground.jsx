@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
+import MatrixRainBackground from "./MatrixRainBackground";
 import useViewportProfile from "../hooks/useViewportProfile";
 
 const DotLottieReact = lazy(() =>
@@ -15,12 +16,12 @@ const GLOBAL_BACKGROUND_MEDIA = {
 
 const GlobalBackground = () => {
   const prefersReducedMotion = useReducedMotion();
-  const { isMobile, isTablet } = useViewportProfile();
+  const { isMobile, isTablet, isIOS } = useViewportProfile();
   const { staticImageSrc, lottieSrc } = GLOBAL_BACKGROUND_MEDIA;
   const [shouldRenderLottie, setShouldRenderLottie] = useState(false);
 
   useEffect(() => {
-    if (prefersReducedMotion || isMobile) {
+    if (prefersReducedMotion || isMobile || isIOS) {
       setShouldRenderLottie(false);
       return undefined;
     }
@@ -34,11 +35,12 @@ const GlobalBackground = () => {
 
     const timeoutId = window.setTimeout(enableLottie, isTablet ? 520 : 220);
     return () => window.clearTimeout(timeoutId);
-  }, [isMobile, isTablet, prefersReducedMotion]);
+  }, [isIOS, isMobile, isTablet, prefersReducedMotion]);
 
   return (
     <div aria-hidden="true" className="site-background">
       <div className="site-background__base" />
+      <MatrixRainBackground />
 
       {staticImageSrc ? (
         <div

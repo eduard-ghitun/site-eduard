@@ -10,19 +10,26 @@ const getProfile = () => {
       isMobile: false,
       isTablet: false,
       isTouch: false,
-      isDesktop: true
+      isDesktop: true,
+      isIOS: false
     };
   }
 
   const isMobile = window.matchMedia(MOBILE_QUERY).matches;
   const isTablet = window.matchMedia(TABLET_QUERY).matches;
   const isTouch = window.matchMedia(COARSE_POINTER_QUERY).matches;
+  const userAgent = window.navigator.userAgent || "";
+  const platform = window.navigator.platform || "";
+  const isIOS =
+    /iPad|iPhone|iPod/.test(userAgent) ||
+    (platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
 
   return {
     isMobile,
     isTablet,
     isTouch,
-    isDesktop: !isMobile && !isTablet
+    isDesktop: !isMobile && !isTablet,
+    isIOS
   };
 };
 
@@ -44,7 +51,8 @@ const useViewportProfile = () => {
           current.isMobile === next.isMobile &&
           current.isTablet === next.isTablet &&
           current.isTouch === next.isTouch &&
-          current.isDesktop === next.isDesktop
+          current.isDesktop === next.isDesktop &&
+          current.isIOS === next.isIOS
         ) {
           return current;
         }

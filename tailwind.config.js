@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["'Cormorant Garamond'", "serif"],
-        body: ["'Manrope'", "sans-serif"]
+        heading: ["'Oxanium'", "sans-serif"],
+        body: ["'Manrope'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"]
       }
     }
   },
