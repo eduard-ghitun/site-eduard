@@ -25,8 +25,7 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
         <div className="section-grid pointer-events-none absolute inset-0 opacity-[0.08]" />
       )}
     </div>
-    <div className="absolute left-5 right-5 top-5 flex items-center justify-between md:left-8 md:right-8 md:top-8">
-      <span className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">Studiu de caz</span>
+    <div className="absolute left-5 right-5 top-5 flex items-center justify-end md:left-8 md:right-8 md:top-8">
       <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[0.68rem] text-stone-300">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -72,7 +71,7 @@ const Portfolio = () => {
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:gap-10 lg:gap-12">
         {projects.map((project, index) => {
           const primaryUrl = project.liveUrl || project.githubUrl;
-          const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "Vezi pe GitHub";
+          const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "View on GitHub";
           const showGithubButton = Boolean(project.githubUrl && project.liveUrl);
 
           return (

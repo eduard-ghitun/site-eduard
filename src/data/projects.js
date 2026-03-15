@@ -36,5 +36,18 @@ export const projects = [
     githubUrl: "https://github.com/eduard-ghitun/site-northway",
     previewMode: "screenshot",
     featured: false
+  },
+  {
+    title: "Proiect-DekoConstruct",
+    description:
+      "Website de prezentare pentru domeniul construcțiilor, gândit pentru o imagine profesionistă, structură clară și evidențiere rapidă a serviciilor oferite.",
+    technologies: ["React", "Vite", "Tailwind CSS", "Responsive Design"],
+    previewImage: "/projects/dekoconstruct-desktop.png",
+    previewImageTablet: "/projects/dekoconstruct-tablet.png",
+    previewImageMobile: "/projects/dekoconstruct-mobile.png",
+    liveUrl: "https://www.dekoconstruct.ro/",
+    githubUrl: "https://github.com/eduard-ghitun/site-ConstructorEnache",
+    previewMode: "screenshot",
+    featured: false
   }
 ];
