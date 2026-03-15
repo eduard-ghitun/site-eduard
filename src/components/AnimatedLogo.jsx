@@ -14,36 +14,31 @@ const SIZE_CONFIG = {
 
 const AnimatedLogo = ({ href = "#hero", size = "navbar", animateOnMount = true, className = "" }) => {
   const prefersReducedMotion = useReducedMotion();
-  const { isMobile, isTablet } = useViewportProfile();
+  const { isMobile, isTablet, isTouch, isIOS } = useViewportProfile();
   const config = SIZE_CONFIG[size] ?? SIZE_CONFIG.navbar;
-  const shouldAnimate = animateOnMount && !prefersReducedMotion;
-  const travel = isMobile ? 16 : isTablet ? 24 : 30;
+  const shouldAnimate = animateOnMount && !prefersReducedMotion && !isMobile && !isIOS && !isTouch;
   const burstDuration = isMobile ? 0.52 : isTablet ? 0.64 : 0.72;
 
-  const gInitial = shouldAnimate ? { x: -travel, opacity: 0, filter: "blur(8px)" } : { opacity: 1 };
+  const gInitial = shouldAnimate ? { opacity: 0 } : { opacity: 1 };
   const gAnimate = shouldAnimate
     ? {
-        x: [-travel, 6, 0],
         opacity: [0, 1, 1],
-        filter: ["blur(8px)", "blur(0px)", "blur(0px)"],
         transition: {
-          duration: isMobile ? 0.52 : isTablet ? 0.68 : 0.78,
+          duration: isMobile ? 0.52 : isTablet ? 0.68 : 0.72,
           ease: [0.18, 1, 0.32, 1],
-          times: [0, 0.78, 1]
+          times: [0, 0.74, 1]
         }
       }
     : { opacity: 1 };
 
-  const devInitial = shouldAnimate ? { x: travel, opacity: 0, filter: "blur(8px)" } : { opacity: 1 };
+  const devInitial = shouldAnimate ? { opacity: 0 } : { opacity: 1 };
   const devAnimate = shouldAnimate
     ? {
-        x: [travel, -5, 0],
         opacity: [0, 1, 1],
-        filter: ["blur(8px)", "blur(0px)", "blur(0px)"],
         transition: {
-          duration: isMobile ? 0.56 : isTablet ? 0.72 : 0.82,
+          duration: isMobile ? 0.56 : isTablet ? 0.72 : 0.76,
           ease: [0.18, 1, 0.32, 1],
-          times: [0, 0.76, 1],
+          times: [0, 0.72, 1],
           delay: isMobile ? 0.02 : 0.03
         }
       }
@@ -51,14 +46,13 @@ const AnimatedLogo = ({ href = "#hero", size = "navbar", animateOnMount = true, 
 
   const wrapperAnimate = shouldAnimate
     ? {
-        scale: [0.985, 1.024, 1],
-        filter: ["brightness(0.92)", "brightness(1.18)", "brightness(1)"],
+        opacity: [0.8, 1],
         transition: {
-          duration: isMobile ? 0.58 : isTablet ? 0.76 : 0.9,
+          duration: isMobile ? 0.58 : isTablet ? 0.76 : 0.82,
           ease: [0.18, 1, 0.32, 1]
         }
       }
-    : { scale: 1 };
+    : { opacity: 1 };
 
   const burstAnimate = shouldAnimate
     ? {

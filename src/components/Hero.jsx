@@ -7,8 +7,15 @@ const pillStats = ["UI premium", "Performanță ridicată", "Experiență optimi
 const terminalLines = ["initializing website...", "loading components...", "welcome to GDevelopment"];
 
 const Hero = () => {
-  const { isMobile, isTablet, isTouch } = useViewportProfile();
+  const { isMobile, isTablet, isTouch, isIOS } = useViewportProfile();
   const isCompact = isMobile || isTablet;
+  const disableTextMotion = isCompact || isIOS;
+  const fadeUpTransition = disableTextMotion
+    ? { duration: 0 }
+    : { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
+  const compactTransition = disableTextMotion
+    ? { duration: 0 }
+    : { duration: 0.65, delay: isCompact ? 0.02 : 0.08, ease: [0.22, 1, 0.36, 1] };
 
   return (
     <SectionFrame id="hero" className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6 md:px-8 md:pb-24 md:pt-12 lg:px-12 lg:pb-36 lg:pt-24">
@@ -21,21 +28,21 @@ const Hero = () => {
 
       <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: isCompact ? 14 : 28 }}
+          initial={disableTextMotion ? false : { opacity: 0, y: isCompact ? 14 : 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: isCompact ? 0.35 : 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={fadeUpTransition}
           className="text-center lg:text-left"
         >
           <span className="ui-kicker max-w-full text-center leading-relaxed">
             Web Development • Mentenanță • Microservicii
           </span>
 
-          <h1 className="mx-auto mt-8 max-w-4xl text-balance font-heading text-[clamp(3rem,12vw,4.65rem)] font-semibold uppercase leading-[0.88] tracking-[0.02em] text-[#f5fff8] [text-shadow:0_0_34px_rgba(121,255,172,0.12)] md:mt-10 md:text-[4.9rem] lg:mx-0 lg:text-[6rem]">
+          <h1 className="mx-auto mt-8 max-w-4xl text-balance font-heading text-[clamp(2.35rem,11vw,4.65rem)] font-semibold uppercase leading-[0.94] tracking-[0.015em] text-[#f8fffb] md:mt-10 md:text-[4.9rem] md:leading-[0.88] md:tracking-[0.02em] lg:mx-0 lg:text-[6rem]">
             Website-uri
             <span className="block text-[color:var(--neon)]">premium, rapide, memorabile.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[color:var(--text-soft)] md:text-xl md:leading-8 lg:mx-0 lg:max-w-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.75] text-[color:var(--text-soft)] md:text-xl md:leading-8 lg:mx-0 lg:max-w-xl">
             Construiesc website-uri rapide, moderne și optimizate pentru conversie, astfel încât
             afacerea ta să inspire încredere și să atragă mai mulți clienți online.
           </p>
@@ -63,11 +70,11 @@ const Hero = () => {
             {pillStats.map((item, index) => (
               <motion.span
                 key={item}
-                initial={{ opacity: 0, y: isCompact ? 8 : 16 }}
+                initial={disableTextMotion ? false : { opacity: 0, y: isCompact ? 8 : 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: isCompact ? 0.25 : 0.4,
-                  delay: (isCompact ? 0.08 : 0.16) + index * (isCompact ? 0.04 : 0.06),
+                  duration: disableTextMotion ? 0 : isCompact ? 0.25 : 0.4,
+                  delay: disableTextMotion ? 0 : (isCompact ? 0.08 : 0.16) + index * (isCompact ? 0.04 : 0.06),
                   ease: [0.22, 1, 0.36, 1]
                 }}
                 className="ui-chip max-w-full rounded-full px-4 py-2 text-[0.72rem] font-medium md:text-xs"
@@ -79,14 +86,14 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: isCompact ? 14 : 32 }}
+          initial={disableTextMotion ? false : { opacity: 0, y: isCompact ? 14 : 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: isCompact ? 0.35 : 0.65, delay: isCompact ? 0.02 : 0.08, ease: [0.22, 1, 0.36, 1] }}
+          transition={compactTransition}
           className="relative mx-auto w-full max-w-xl lg:max-w-none"
         >
           <div className="surface-card ui-card-hover overflow-hidden rounded-[2rem] p-6 md:p-8 lg:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(92,255,154,0.16),transparent_34%),linear-gradient(180deg,transparent,rgba(0,0,0,0.18))]" />
-            <div className="relative">
+            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(92,255,154,0.1),transparent_30%),linear-gradient(180deg,transparent,rgba(0,0,0,0.14))]" />
+            <div className="relative z-10">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--muted)]">PROCESUL MEU</p>
                 <span className="rounded-full border border-[rgba(121,255,172,0.24)] bg-[rgba(121,255,172,0.08)] px-3 py-1 text-[0.68rem] text-[color:var(--neon)]">
@@ -94,7 +101,7 @@ const Hero = () => {
                 </span>
               </div>
 
-              <p className="mt-6 max-w-md font-heading text-[2rem] uppercase leading-[0.96] text-[#f5fff8] md:text-[2.7rem]">
+              <p className="mt-6 max-w-md font-heading text-[1.72rem] uppercase leading-[0.98] text-[#f8fffb] md:text-[2.7rem] md:leading-[0.96]">
                 Un proces simplu prin care transform ideile tale într-un website profesional.
               </p>
 
@@ -123,14 +130,14 @@ const Hero = () => {
           </div>
 
           <motion.div
-            whileHover={isTouch || isTablet ? undefined : { y: -4 }}
+            whileHover={isTouch || isTablet || isMobile || isIOS ? undefined : { y: -4 }}
             transition={{ duration: isCompact ? 0.2 : 0.35, ease: "easeOut" }}
             className="surface-card ui-card-hover relative -mt-5 ml-auto w-[92%] rounded-[1.75rem] p-5 sm:-mt-6 sm:w-[88%] md:w-[76%]"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_right_top,rgba(92,255,154,0.14),transparent_38%)]" />
-            <div className="relative">
+            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_right_top,rgba(92,255,154,0.08),transparent_34%)]" />
+            <div className="relative z-10">
               <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[color:var(--muted)]">Focus</p>
-              <p className="mt-3 max-w-sm font-heading text-[1.8rem] uppercase leading-[0.96] text-[#f5fff8] md:text-3xl">
+              <p className="mt-3 max-w-sm font-heading text-[1.55rem] uppercase leading-[0.98] text-[#f8fffb] md:text-3xl md:leading-[0.96]">
                 Website-uri rapide, elegante și construite pentru rezultate reale.
               </p>
               <p className="mt-4 max-w-sm text-sm leading-7 text-[color:var(--text-soft)]">

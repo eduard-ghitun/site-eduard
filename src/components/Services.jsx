@@ -26,7 +26,7 @@ const Services = () => {
               Servicii construite pentru claritate, ritm și rezultate solide.
             </p>
 
-            <div className="mt-8 max-w-[30rem] rounded-[1.6rem] border border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.72)] p-3 shadow-[0_25px_60px_rgba(0,0,0,0.5)] sm:p-4">
+            <div className="mt-8 max-w-[30rem] rounded-[1.6rem] border border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.84)] p-3 shadow-[0_20px_48px_rgba(0,0,0,0.46)] sm:p-4">
               <div className="aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-[rgba(121,255,172,0.14)] bg-black/35 sm:aspect-[16/10] lg:aspect-[4/5]">
                 <img
                   src={SERVICES_IMAGE_SRC}
@@ -48,7 +48,7 @@ const Services = () => {
                 key={service.title}
                 delay={index * (isCompact ? 32 : 56)}
                 glow
-                className="group ui-card-hover rounded-[1.6rem] border border-[rgba(121,255,172,0.08)] bg-[rgba(7,11,10,0.54)] px-4 py-6 md:px-5 md:py-7 md:[&:nth-child(odd)]:ml-0 lg:py-8"
+                className="group ui-card-hover rounded-[1.6rem] border border-[rgba(121,255,172,0.08)] bg-[rgba(7,11,10,0.82)] px-4 py-6 md:px-5 md:py-7 md:[&:nth-child(odd)]:ml-0 lg:py-8"
               >
                 <span className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[color:var(--muted)]">0{index + 1}</span>
                 <h3 className="mt-3 text-balance font-heading text-[1.9rem] uppercase leading-[0.96] text-[#f5fff8] md:text-[2.2rem]">

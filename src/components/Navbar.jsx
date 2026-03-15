@@ -5,6 +5,7 @@ import AnimatedLogo from "./AnimatedLogo";
 import { navItems } from "../data/siteData";
 import { useSectionUI } from "../context/SectionUIContext";
 import useNavbarScrolled from "../hooks/useNavbarScrolled";
+import useViewportProfile from "../hooks/useViewportProfile";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,9 @@ const Navbar = () => {
   const toggleRef = useRef(null);
   const isScrolled = useNavbarScrolled(28);
   const prefersReducedMotion = useReducedMotion();
+  const { isMobile, isTouch, isIOS } = useViewportProfile();
   const { activeSection } = useSectionUI();
+  const disableTextMotion = prefersReducedMotion || isMobile || isTouch || isIOS;
 
   useEffect(() => {
     document.body.style.overflow = "";
@@ -73,10 +76,14 @@ const Navbar = () => {
   const rowPadding = isScrolled
     ? "px-4 py-3 sm:px-5 md:px-6 md:py-[0.9rem] lg:px-8"
     : "px-4 py-4 sm:px-6 md:px-8 md:py-[1.1rem] lg:px-12";
-  const headerSurface = isScrolled
-    ? "border-[rgba(121,255,172,0.16)] bg-[#060907]/[0.74] shadow-[0_24px_56px_-34px_rgba(0,0,0,0.88),0_0_28px_rgba(92,255,154,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-[22px]"
-    : "border-[rgba(121,255,172,0.08)] bg-black/[0.22] shadow-[0_18px_44px_-36px_rgba(0,0,0,0.72)] backdrop-blur-[16px]";
-  const menuButtonSurface = isScrolled ? "bg-[rgba(9,18,14,0.9)]" : "bg-[rgba(8,13,11,0.66)]";
+  const headerSurface = disableTextMotion
+    ? isScrolled
+      ? "border-[rgba(121,255,172,0.16)] bg-[#060907]/[0.96] shadow-[0_18px_40px_-28px_rgba(0,0,0,0.9),0_0_18px_rgba(92,255,154,0.04),inset_0_1px_0_rgba(255,255,255,0.04)]"
+      : "border-[rgba(121,255,172,0.1)] bg-[#050706]/[0.92] shadow-[0_16px_34px_-28px_rgba(0,0,0,0.84)]"
+    : isScrolled
+      ? "border-[rgba(121,255,172,0.16)] bg-[#060907]/[0.74] shadow-[0_24px_56px_-34px_rgba(0,0,0,0.88),0_0_28px_rgba(92,255,154,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-[22px]"
+      : "border-[rgba(121,255,172,0.08)] bg-black/[0.22] shadow-[0_18px_44px_-36px_rgba(0,0,0,0.72)] backdrop-blur-[16px]";
+  const menuButtonSurface = isScrolled ? "bg-[rgba(9,18,14,0.94)]" : "bg-[rgba(8,13,11,0.82)]";
   const ctaSurface = isScrolled
     ? "border-[rgba(121,255,172,0.16)] bg-[rgba(9,18,14,0.9)]"
     : "border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.62)]";
@@ -86,8 +93,8 @@ const Navbar = () => {
       <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-[calc(0.45rem+env(safe-area-inset-top))] sm:px-4 lg:px-4 lg:pt-[calc(0.75rem+env(safe-area-inset-top))]">
         <motion.div
           initial={false}
-          animate={isScrolled ? { y: 0 } : { y: 2 }}
-          transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+          animate={disableTextMotion ? { y: 0 } : isScrolled ? { y: 0 } : { y: 2 }}
+          transition={disableTextMotion ? { duration: 0 } : { duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto w-full max-w-6xl"
         >
           <nav
@@ -95,7 +102,7 @@ const Navbar = () => {
             className={`relative overflow-hidden rounded-[1.6rem] border ${headerSurface} ${shellTransition} transition-[background-color,border-color,box-shadow,backdrop-filter]`}
           >
             <div
-              className={`pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(121,255,172,0.08),transparent_55%)] transition-opacity duration-300 ease-out [mask-image:linear-gradient(180deg,black,transparent)] md:block ${
+              className={`pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(121,255,172,0.05),transparent_55%)] transition-opacity duration-300 ease-out [mask-image:linear-gradient(180deg,black,transparent)] md:block ${
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             />
@@ -161,16 +168,16 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-40 bg-black/78 backdrop-blur-sm lg:hidden"
+                className={`fixed inset-0 z-40 bg-black/78 ${disableTextMotion ? "" : "backdrop-blur-sm"} lg:hidden`}
               />
               <motion.aside
                 id="mobile-menu"
                 ref={panelRef}
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed right-0 top-0 z-50 flex h-[var(--app-height)] w-[min(24rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-[rgba(121,255,172,0.16)] bg-[#050807] px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-20 shadow-[0_0_48px_rgba(92,255,154,0.08)] lg:hidden"
+                initial={disableTextMotion ? { opacity: 0 } : { x: "100%" }}
+                animate={disableTextMotion ? { opacity: 1 } : { x: 0 }}
+                exit={disableTextMotion ? { opacity: 0 } : { x: "100%" }}
+                transition={disableTextMotion ? { duration: 0.16 } : { duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="fixed right-0 top-0 z-50 flex h-[var(--app-height)] w-[min(24rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-[rgba(121,255,172,0.16)] bg-[#050807] px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-20 shadow-[0_0_36px_rgba(92,255,154,0.05)] lg:hidden"
               >
                 <nav className="flex flex-col gap-2">
                   {navItems.map((item) => (

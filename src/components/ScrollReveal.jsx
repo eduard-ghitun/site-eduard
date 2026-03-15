@@ -1,5 +1,7 @@
 import { createElement } from "react";
+import { useReducedMotion } from "framer-motion";
 import useScrollReveal from "../hooks/useScrollReveal";
+import useViewportProfile from "../hooks/useViewportProfile";
 
 const directionClassMap = {
   up: "reveal--up",
@@ -21,13 +23,17 @@ const ScrollReveal = ({
   direction = "up",
   ...props
 }) => {
+  const prefersReducedMotion = useReducedMotion();
+  const { isMobile, isIOS } = useViewportProfile();
   const { ref, isVisible } = useScrollReveal({ threshold, rootMargin, once });
+  const disableRevealMotion = prefersReducedMotion || isMobile || isIOS;
+  const shouldShow = disableRevealMotion || isVisible;
 
   return createElement(
     as,
     {
-      ref,
-      className: `reveal ${directionClassMap[direction] ?? directionClassMap.up} ${glow ? "reveal--glow" : ""} ${isVisible ? "reveal--visible" : ""} ${className}`.trim(),
+      ref: disableRevealMotion ? undefined : ref,
+      className: `reveal ${directionClassMap[direction] ?? directionClassMap.up} ${glow ? "reveal--glow" : ""} ${shouldShow ? "reveal--visible" : ""} ${className}`.trim(),
       style: { "--reveal-delay": `${delay}ms`, ...props.style },
       ...props
     },

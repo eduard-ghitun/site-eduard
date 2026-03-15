@@ -65,7 +65,7 @@ const About = () => {
             ].map((item) => (
               <div
                 key={item.value}
-                className="ui-card-hover rounded-[1.5rem] border border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.64)] px-4 py-5"
+                className="ui-card-hover rounded-[1.5rem] border border-[rgba(121,255,172,0.12)] bg-[rgba(7,11,10,0.84)] px-4 py-5"
               >
                 <p className="font-heading text-2xl leading-none text-[#f5fff8] md:text-[2rem]">{item.value}</p>
                 <p className="mt-2 font-mono text-xs uppercase tracking-[0.16em] text-[color:var(--muted)] md:text-[0.7rem]">{item.label}</p>

@@ -5,7 +5,7 @@ import { projects } from "../data/projects";
 import useViewportProfile from "../hooks/useViewportProfile";
 
 const ProjectStage = ({ title, technologies, index, previewImage, previewImageTablet, previewImageMobile, previewMode }) => (
-  <div className="relative min-h-[16.5rem] overflow-hidden rounded-[1.75rem] border border-[rgba(121,255,172,0.12)] bg-[radial-gradient(circle_at_top,rgba(92,255,154,0.14),transparent_34%),linear-gradient(180deg,rgba(10,16,14,0.9),rgba(5,7,6,0.94))] p-5 md:min-h-[21rem] md:p-8">
+  <div className="relative min-h-[16.5rem] overflow-hidden rounded-[1.75rem] border border-[rgba(121,255,172,0.12)] bg-[radial-gradient(circle_at_top,rgba(92,255,154,0.1),transparent_30%),linear-gradient(180deg,rgba(10,16,14,0.94),rgba(5,7,6,0.98))] p-5 md:min-h-[21rem] md:p-8">
     <div className="absolute inset-5 overflow-hidden rounded-[1.4rem] border border-[rgba(121,255,172,0.12)] md:inset-6">
       {previewImage ? (
         <>
@@ -26,13 +26,13 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
         <div className="section-grid pointer-events-none absolute inset-0 opacity-[0.08]" />
       )}
     </div>
-    <div className="absolute left-5 right-5 top-5 flex items-center justify-end md:left-8 md:right-8 md:top-8">
+    <div className="absolute left-5 right-5 top-5 z-10 flex items-center justify-end md:left-8 md:right-8 md:top-8">
       <span className="rounded-full border border-[rgba(121,255,172,0.16)] bg-[rgba(9,18,14,0.8)] px-3 py-1 font-mono text-[0.68rem] text-[color:var(--neon)]">
         {String(index + 1).padStart(2, "0")}
       </span>
     </div>
     {previewMode !== "screenshot" ? (
-      <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8 md:right-8">
+      <div className="absolute bottom-5 left-5 right-5 z-10 md:bottom-8 md:left-8 md:right-8">
         <p className="max-w-sm font-heading text-[2rem] uppercase leading-[0.94] text-[#f5fff8] md:text-[3.2rem]">{title}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {technologies.slice(0, 3).map((tag) => (
