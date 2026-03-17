@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import useViewportProfile from "../hooks/useViewportProfile";
 
-const TerminalTyping = ({ lines }) => {
+const TerminalTyping = ({ lines, ariaLabel }) => {
   const prefersReducedMotion = useReducedMotion();
   const { isMobile, isTablet } = useViewportProfile();
   const [displayedLines, setDisplayedLines] = useState(() => lines.map(() => ""));
@@ -17,6 +17,13 @@ const TerminalTyping = ({ lines }) => {
     }),
     [isMobile, isTablet]
   );
+
+  useEffect(() => {
+    setDisplayedLines(lines.map(() => ""));
+    setActiveLine(0);
+    setActiveChar(0);
+    setIsComplete(false);
+  }, [lines]);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -60,7 +67,7 @@ const TerminalTyping = ({ lines }) => {
   }, [activeChar, activeLine, isComplete, lines, prefersReducedMotion, timing]);
 
   return (
-    <div className="terminal-typing" aria-label="Terminal intro">
+    <div className="terminal-typing" aria-label={ariaLabel}>
       <div className="terminal-typing__bar">
         <span />
         <span />

@@ -2,7 +2,8 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import AnimatedLogo from "./AnimatedLogo";
-import { navItems } from "../data/siteData";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "../context/LanguageContext";
 import { useSectionUI } from "../context/SectionUIContext";
 import useNavbarScrolled from "../hooks/useNavbarScrolled";
 import useViewportProfile from "../hooks/useViewportProfile";
@@ -15,6 +16,7 @@ const Navbar = () => {
   const prefersReducedMotion = useReducedMotion();
   const { isMobile, isTouch, isIOS } = useViewportProfile();
   const { activeSection } = useSectionUI();
+  const { t } = useLanguage();
   const disableTextMotion = prefersReducedMotion || isMobile || isTouch || isIOS;
 
   useEffect(() => {
@@ -98,7 +100,7 @@ const Navbar = () => {
           className="mx-auto w-full max-w-6xl"
         >
           <nav
-            aria-label="Navigare principală"
+            aria-label={t.nav.ariaLabel}
             className={`relative overflow-hidden rounded-[1.6rem] border ${headerSurface} ${shellTransition} transition-[background-color,border-color,box-shadow,backdrop-filter]`}
           >
             <div
@@ -114,7 +116,7 @@ const Navbar = () => {
 
               <div className="hidden items-center gap-3 lg:flex lg:flex-nowrap lg:gap-5">
                 <div className="flex items-center gap-5 lg:gap-8">
-                  {navItems.map((item) => (
+                  {t.nav.items.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
@@ -134,25 +136,30 @@ const Navbar = () => {
                   ))}
                 </div>
 
+                <LanguageSwitcher />
+
                 <a
                   href="#contact"
                   className={`ui-button ui-button--primary whitespace-nowrap px-5 py-2 text-sm ${ctaSurface} ${shellTransition}`}
                 >
-                  Cere ofertă
+                  {t.nav.cta}
                 </a>
               </div>
 
-              <button
-                ref={toggleRef}
-                type="button"
-                onClick={() => setIsOpen((value) => !value)}
-                className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-[rgba(121,255,172,0.16)] ${menuButtonSurface} text-[color:var(--text)] ${shellTransition} transition-[background-color,border-color,color] hover:border-[rgba(121,255,172,0.34)] hover:bg-[rgba(9,18,14,0.94)] lg:hidden`}
-                aria-label={isOpen ? "Închide meniul" : "Deschide meniul"}
-                aria-expanded={isOpen}
-                aria-controls="mobile-menu"
-              >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
+              <div className="flex items-center gap-2 lg:hidden">
+                <LanguageSwitcher className="shrink-0" compact />
+                <button
+                  ref={toggleRef}
+                  type="button"
+                  onClick={() => setIsOpen((value) => !value)}
+                  className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-[rgba(121,255,172,0.16)] ${menuButtonSurface} text-[color:var(--text)] ${shellTransition} transition-[background-color,border-color,color] hover:border-[rgba(121,255,172,0.34)] hover:bg-[rgba(9,18,14,0.94)] lg:hidden`}
+                  aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
+                  aria-expanded={isOpen}
+                  aria-controls="mobile-menu"
+                >
+                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+              </div>
             </div>
           </nav>
         </motion.div>
@@ -162,7 +169,7 @@ const Navbar = () => {
             <>
               <motion.button
                 type="button"
-                aria-label="Închide meniul"
+                aria-label={t.nav.closeMenu}
                 onClick={closeMenu}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -180,7 +187,7 @@ const Navbar = () => {
                 className="fixed right-0 top-0 z-50 flex h-[var(--app-height)] w-[min(24rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-[rgba(121,255,172,0.16)] bg-[#050807] px-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-20 shadow-[0_0_36px_rgba(92,255,154,0.05)] lg:hidden"
               >
                 <nav className="flex flex-col gap-2">
-                  {navItems.map((item) => (
+                  {t.nav.items.map((item) => (
                     <a
                       key={item.href}
                       href={item.href}
@@ -195,12 +202,18 @@ const Navbar = () => {
                     </a>
                   ))}
                 </nav>
+                <div className="mt-5 rounded-[1.4rem] border border-[rgba(121,255,172,0.1)] bg-[rgba(9,18,14,0.52)] p-4">
+                  <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[color:var(--muted)]">
+                    {t.nav.mobileLanguageLabel}
+                  </p>
+                  <LanguageSwitcher fullWidth />
+                </div>
                 <a
                   href="#contact"
                   onClick={closeMenu}
                   className="ui-button ui-button--primary mt-6 w-full text-sm"
                 >
-                  Cere ofertă
+                  {t.nav.cta}
                 </a>
               </motion.aside>
             </>

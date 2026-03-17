@@ -2,9 +2,19 @@ import SectionHeading from "./SectionHeading";
 import SectionFrame from "./SectionFrame";
 import ScrollReveal from "./ScrollReveal";
 import { projects } from "../data/projects";
+import { useLanguage } from "../context/LanguageContext";
 import useViewportProfile from "../hooks/useViewportProfile";
 
-const ProjectStage = ({ title, technologies, index, previewImage, previewImageTablet, previewImageMobile, previewMode }) => (
+const ProjectStage = ({
+  alt,
+  index,
+  previewImage,
+  previewImageMobile,
+  previewImageTablet,
+  previewMode,
+  technologies,
+  title
+}) => (
   <div className="relative min-h-[16.5rem] overflow-hidden rounded-[1.75rem] border border-[rgba(121,255,172,0.12)] bg-[radial-gradient(circle_at_top,rgba(92,255,154,0.1),transparent_30%),linear-gradient(180deg,rgba(10,16,14,0.94),rgba(5,7,6,0.98))] p-5 md:min-h-[21rem] md:p-8">
     <div className="absolute inset-5 overflow-hidden rounded-[1.4rem] border border-[rgba(121,255,172,0.12)] md:inset-6">
       {previewImage ? (
@@ -15,7 +25,7 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
               .filter(Boolean)
               .join(", ")}
             sizes="(max-width: 767px) 100vw, (max-width: 1279px) 70vw, 40vw"
-            alt={`Preview ${title}`}
+            alt={alt}
             className={`h-full w-full ${previewMode === "screenshot" ? "object-cover object-top" : "object-contain object-top sm:object-cover"}`}
             loading="lazy"
             decoding="async"
@@ -52,17 +62,18 @@ const ProjectStage = ({ title, technologies, index, previewImage, previewImageTa
 
 const Portfolio = () => {
   const { isMobile, isTablet } = useViewportProfile();
+  const { t } = useLanguage();
   const isCompact = isMobile || isTablet;
 
   return (
     <SectionFrame id="proiecte" className="relative mx-auto w-full max-w-6xl px-4 py-16 md:px-8 md:py-20 lg:px-12 lg:py-32">
       <SectionHeading
-        eyebrow="Proiecte"
-        title="Proiecte realizate"
+        eyebrow={t.portfolio.eyebrow}
+        title={t.portfolio.title}
       />
 
       <div className="mb-7 flex flex-wrap items-center justify-center gap-2 text-[0.68rem] uppercase tracking-[0.16em] text-[color:var(--muted)] md:mb-9 md:gap-3 md:text-xs">
-        {["Frontend Engineering", "UX/UI Premium", "Microservice Integration"].map((label) => (
+        {t.portfolio.tags.map((label) => (
           <span key={label} className="ui-chip rounded-full px-3 py-1.5 md:px-4 md:py-2">
             {label}
           </span>
@@ -71,14 +82,21 @@ const Portfolio = () => {
 
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:gap-10 lg:gap-12">
         {projects.map((project, index) => {
+          const localizedProject = t.portfolio.projects[index] ?? {
+            title: project.id,
+            description: "",
+            technologies: []
+          };
           const primaryUrl = project.liveUrl || project.githubUrl;
-          const primaryLabel = project.liveUrl ? "Vizualizează proiect" : "View on GitHub";
+          const primaryLabel = project.liveUrl ? t.portfolio.actions.live : t.portfolio.actions.github;
           const showGithubButton = Boolean(project.githubUrl && project.liveUrl);
+          const { description, technologies, title } = localizedProject;
+          const previewAlt = t.portfolio.previewAlt.replace("{title}", title);
 
           return (
             <ScrollReveal
               as="article"
-              key={project.title}
+              key={project.id}
               delay={index * (isCompact ? 36 : 64)}
               glow
               className="surface-card ui-card-hover w-full min-w-0 rounded-[2rem] p-5 sm:p-6 md:p-8 lg:p-10"
@@ -87,22 +105,22 @@ const Portfolio = () => {
                 <div className="order-2 min-w-0 lg:order-1">
                   <div className="flex min-w-0 flex-wrap items-center justify-between gap-3">
                     <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--muted)]">
-                      Proiect {String(index + 1).padStart(2, "0")}
+                      {t.portfolio.projectLabel} {String(index + 1).padStart(2, "0")}
                     </p>
                     {project.featured ? (
                       <span className="rounded-full border border-[rgba(121,255,172,0.24)] bg-[rgba(121,255,172,0.08)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.16em] text-[color:var(--neon)]">
-                        Featured
+                        {t.portfolio.featured}
                       </span>
                     ) : null}
                   </div>
 
                   <h3 className="mt-5 max-w-xl text-balance font-heading text-[2.3rem] uppercase leading-[0.96] text-[#f5fff8] md:text-[3.2rem]">
-                    {project.title}
+                    {title}
                   </h3>
-                  <p className="mt-5 max-w-xl text-sm leading-8 text-[color:var(--text-soft)] md:text-base">{project.description}</p>
+                  <p className="mt-5 max-w-xl text-sm leading-8 text-[color:var(--text-soft)] md:text-base">{description}</p>
 
                   <div className="mt-6 flex min-w-0 flex-wrap gap-2">
-                    {project.technologies.map((tag) => (
+                    {technologies.map((tag) => (
                       <span
                         key={tag}
                         className="ui-chip max-w-full rounded-full px-3 py-1.5 text-[0.72rem] font-medium md:text-xs"
@@ -124,7 +142,7 @@ const Portfolio = () => {
                       </a>
                     ) : (
                       <span className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full border border-[rgba(121,255,172,0.08)] bg-[rgba(7,11,10,0.4)] px-5 py-2.5 text-sm font-semibold text-[color:var(--muted)] md:min-w-[9rem] md:w-auto">
-                        Link în curând
+                        {t.portfolio.actions.comingSoon}
                       </span>
                     )}
                     {showGithubButton ? (
@@ -134,7 +152,7 @@ const Portfolio = () => {
                         rel="noopener noreferrer"
                         className="ui-button ui-button--secondary w-full px-5 py-2.5 text-sm md:min-w-[9rem] md:w-auto"
                       >
-                        View on GitHub
+                        {t.portfolio.actions.github}
                       </a>
                     ) : null}
                   </div>
@@ -142,13 +160,14 @@ const Portfolio = () => {
 
                 <div className="order-1 w-full lg:order-2 lg:max-w-[36rem] lg:justify-self-end">
                   <ProjectStage
-                    title={project.title}
-                    technologies={project.technologies}
+                    alt={previewAlt}
                     index={index}
                     previewImage={project.previewImage}
                     previewImageTablet={project.previewImageTablet}
                     previewImageMobile={project.previewImageMobile}
                     previewMode={project.previewMode}
+                    technologies={technologies}
+                    title={title}
                   />
                 </div>
               </div>

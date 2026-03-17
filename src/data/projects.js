@@ -1,9 +1,6 @@
 export const projects = [
   {
-    title: "Proiect Avocat",
-    description:
-      "Website modern de prezentare pentru un cabinet de avocatură, cu design profesionist, structură clară și interfață orientată spre încredere și conversie.",
-    technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    id: "law-firm",
     previewImage: "/projects/theta-preview.jpg",
     previewImageTablet: "/projects/theta-preview-tablet.jpg",
     previewImageMobile: "/projects/theta-preview-mobile.jpg",
@@ -12,10 +9,7 @@ export const projects = [
     featured: true
   },
   {
-    title: "ServiceAuto",
-    description:
-      "Site de prezentare modern pentru service auto, realizat cu design responsive, structură clară și focus pe prezentarea serviciilor într-un mod profesionist.",
-    technologies: ["React", "Vite", "Responsive Design", "UI/UX"],
+    id: "service-auto",
     previewImage: "/projects/serviceauto-desktop.png",
     previewImageTablet: "/projects/serviceauto-tablet.png",
     previewImageMobile: "/projects/serviceauto-mobile.png",
@@ -25,10 +19,7 @@ export const projects = [
     featured: false
   },
   {
-    title: "NorthSiteCrew",
-    description:
-      "Website de prezentare pentru zona automotive, cu layout modern, secțiuni clare pentru servicii și o interfață construită pentru impact vizual și navigare rapidă.",
-    technologies: ["React", "Vite", "Tailwind CSS", "Responsive Design"],
+    id: "northsitecrew",
     previewImage: "/projects/automotive-desktop.png",
     previewImageTablet: "/projects/automotive-tablet.png",
     previewImageMobile: "/projects/automotive-mobile.png",
@@ -38,10 +29,7 @@ export const projects = [
     featured: false
   },
   {
-    title: "Proiect-DekoConstruct",
-    description:
-      "Website de prezentare pentru domeniul construcțiilor, gândit pentru o imagine profesionistă, structură clară și evidențiere rapidă a serviciilor oferite.",
-    technologies: ["React", "Vite", "Tailwind CSS", "Responsive Design"],
+    id: "dekoconstruct",
     previewImage: "/projects/dekoconstruct-desktop.png",
     previewImageTablet: "/projects/dekoconstruct-tablet.png",
     previewImageMobile: "/projects/dekoconstruct-mobile.png",

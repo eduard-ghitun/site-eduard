@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 import SectionFrame from "./SectionFrame";
 import TerminalTyping from "./TerminalTyping";
+import { useLanguage } from "../context/LanguageContext";
 import useViewportProfile from "../hooks/useViewportProfile";
-
-const pillStats = ["UI premium", "Performanță ridicată", "Experiență optimizată pentru conversie"];
-const terminalLines = ["initializing website...", "loading components...", "welcome to GDevelopment"];
 
 const Hero = () => {
   const { isMobile, isTablet, isTouch, isIOS } = useViewportProfile();
+  const { t } = useLanguage();
   const isCompact = isMobile || isTablet;
   const disableTextMotion = isCompact || isIOS;
   const fadeUpTransition = disableTextMotion
@@ -34,21 +33,20 @@ const Hero = () => {
           className="text-center lg:text-left"
         >
           <span className="ui-kicker max-w-full text-center leading-relaxed">
-            Web Development • Mentenanță • Microservicii
+            {t.hero.kicker}
           </span>
 
           <h1 className="mx-auto mt-8 max-w-4xl text-balance font-heading text-[clamp(2.35rem,11vw,4.65rem)] font-semibold uppercase leading-[0.94] tracking-[0.015em] text-[#f8fffb] md:mt-10 md:text-[4.9rem] md:leading-[0.88] md:tracking-[0.02em] lg:mx-0 lg:text-[6rem]">
-            Website-uri
-            <span className="block text-[color:var(--neon)]">premium, rapide, memorabile.</span>
+            {t.hero.title.lead}
+            <span className="block text-[color:var(--neon)]">{t.hero.title.accent}</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-[1.75] text-[color:var(--text-soft)] md:text-xl md:leading-8 lg:mx-0 lg:max-w-xl">
-            Construiesc website-uri rapide, moderne și optimizate pentru conversie, astfel încât
-            afacerea ta să inspire încredere și să atragă mai mulți clienți online.
+            {t.hero.description}
           </p>
 
           <div className="mx-auto mt-7 max-w-xl lg:mx-0">
-            <TerminalTyping lines={terminalLines} />
+            <TerminalTyping lines={t.hero.terminalLines} ariaLabel={t.hero.terminalAriaLabel} />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 md:flex-row md:justify-center lg:justify-start">
@@ -56,18 +54,18 @@ const Hero = () => {
               href="#proiecte"
               className="ui-button ui-button--primary w-full px-7 py-3 text-sm md:min-w-[13rem] md:w-auto"
             >
-              Vezi portofoliul
+              {t.hero.ctaPrimary}
             </a>
             <a
               href="#contact"
               className="ui-button ui-button--secondary w-full px-7 py-3 text-sm md:min-w-[13rem] md:w-auto"
             >
-              Cere o ofertă gratuită
+              {t.hero.ctaSecondary}
             </a>
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-2.5 sm:mt-10 lg:justify-start">
-            {pillStats.map((item, index) => (
+            {t.hero.stats.map((item, index) => (
               <motion.span
                 key={item}
                 initial={disableTextMotion ? false : { opacity: 0, y: isCompact ? 8 : 16 }}
@@ -95,26 +93,24 @@ const Hero = () => {
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(92,255,154,0.1),transparent_30%),linear-gradient(180deg,transparent,rgba(0,0,0,0.14))]" />
             <div className="relative z-10">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--muted)]">PROCESUL MEU</p>
+                <p className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[color:var(--muted)]">
+                  {t.hero.process.label}
+                </p>
                 <span className="rounded-full border border-[rgba(121,255,172,0.24)] bg-[rgba(121,255,172,0.08)] px-3 py-1 text-[0.68rem] text-[color:var(--neon)]">
-                  Disponibil
+                  {t.hero.process.status}
                 </span>
               </div>
 
               <p className="mt-6 max-w-md font-heading text-[1.72rem] uppercase leading-[0.98] text-[#f8fffb] md:text-[2.7rem] md:leading-[0.96]">
-                Un proces simplu prin care transform ideile tale într-un website profesional.
+                {t.hero.process.title}
               </p>
 
               <p className="mt-5 max-w-lg text-sm leading-7 text-[color:var(--text-soft)] md:text-base">
-                De la analiză și design până la lansare și optimizare pentru rezultate reale.
+                {t.hero.process.description}
               </p>
 
               <div className="mt-8 space-y-4">
-                {[
-                  "Analizăm obiectivele afacerii tale și structura website-ului.",
-                  "Construiesc designul și dezvolt website-ul folosind tehnologii moderne.",
-                  "Lansăm website-ul și îl optimizăm pentru performanță și conversii."
-                ].map((item, index) => (
+                {t.hero.process.steps.map((item, index) => (
                   <div
                     key={item}
                     className="flex items-start gap-4 border-t border-[rgba(121,255,172,0.1)] pt-4 first:border-t-0 first:pt-0"
@@ -136,13 +132,12 @@ const Hero = () => {
           >
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_right_top,rgba(92,255,154,0.08),transparent_34%)]" />
             <div className="relative z-10">
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[color:var(--muted)]">Focus</p>
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-[color:var(--muted)]">{t.hero.focus.label}</p>
               <p className="mt-3 max-w-sm font-heading text-[1.55rem] uppercase leading-[0.98] text-[#f8fffb] md:text-3xl md:leading-[0.96]">
-                Website-uri rapide, elegante și construite pentru rezultate reale.
+                {t.hero.focus.title}
               </p>
               <p className="mt-4 max-w-sm text-sm leading-7 text-[color:var(--text-soft)]">
-                Fiecare proiect este realizat cu accent pe performanță, experiență de utilizare și o
-                imagine profesională care inspiră încredere.
+                {t.hero.focus.description}
               </p>
             </div>
           </motion.div>
