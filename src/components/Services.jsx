@@ -40,6 +40,15 @@ const Services = () => {
                 />
               </div>
             </div>
+
+            <article className="office-service-card">
+              <p className="office-service-card__eyebrow">{t.officeDesign.hero.eyebrow}</p>
+              <h3>{t.officeDesign.serviceCard.title}</h3>
+              <p>{t.officeDesign.serviceCard.description}</p>
+              <a href="/design-birouri" className="ui-button ui-button--secondary">
+                {t.officeDesign.serviceCard.cta}
+              </a>
+            </article>
           </div>
 
           <div className="grid gap-0 md:grid-cols-2">

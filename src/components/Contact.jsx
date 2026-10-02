@@ -29,6 +29,12 @@ const Contact = () => {
   const [isSent, setIsSent] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [submitErrorKey, setSubmitErrorKey] = useState("");
+  const selectedService = typeof window === "undefined"
+    ? ""
+    : new URLSearchParams(window.location.search).get("serviciu") ?? "";
+  const defaultMessage = selectedService
+    ? `${t.contact.form.messagePlaceholder}\n\nServiciu: ${selectedService}`
+    : "";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -136,6 +142,7 @@ const Contact = () => {
               name="message"
               rows={isMobile ? 4 : 5}
               placeholder={t.contact.form.messagePlaceholder}
+              defaultValue={defaultMessage}
               required
               className="ui-field mt-2 w-full rounded-[1.15rem] px-4 py-3 text-base outline-none transition"
             />

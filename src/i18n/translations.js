@@ -151,6 +151,79 @@ export const translations = {
         }
       ]
     },
+    officeDesign: {
+      meta: {
+        title: "Amenajare și design pentru birouri | gdevelopment.ro",
+        description: "Consultanță online pentru amenajarea unui gaming setup, home office sau birou corporate și selecția produselor potrivite.",
+        keywords: "amenajare birou, design birou, gaming setup, home office, birou corporate, consultanță setup",
+        ogLocale: "ro_RO"
+      },
+      serviceCard: {
+        title: "Un birou în care să îți placă să stai.",
+        description: "Te ajut să alegi mobilierul, iluminatul și echipamentele potrivite pentru un spațiu comod, organizat și pe gustul tău.",
+        cta: "Descoperă serviciile de design pentru birouri"
+      },
+      hero: {
+        eyebrow: "Amenajare și selecție de produse",
+        title: "Biroul tău, gândit pentru tine.",
+        description: "Pentru muncă, gaming sau ambele, un birou ar trebui să fie comod și să îți placă felul în care arată. Te ajut să alegi și să așezi lucrurile astfel încât să se potrivească spațiului, bugetului și modului în care îl folosești.",
+        note: "Planificarea și consultanța se pot face online. Serviciul include amenajarea de setup și selecția de produse recomandate; nu include montaj, lucrări electrice sau servicii de arhitectură."
+      },
+      services: [
+        {
+          id: "gaming-setup",
+          label: "Gaming setup",
+          title: "Un setup pe gustul tău, în care fiecare lucru își găsește locul.",
+          items: [
+            "Alegerea biroului și a scaunului.",
+            "Poziționarea monitorului, laptopului sau PC-ului.",
+            "Recomandări pentru periferice și echipamente audio.",
+            "Iluminat ambiental și RGB, potrivit stilului dorit.",
+            "Organizarea cablurilor și a accesoriilor."
+          ]
+        },
+        {
+          id: "home-office",
+          label: "Home office",
+          title: "Un loc în care să lucrezi comod și care să se potrivească în casa ta.",
+          items: [
+            "Alegerea mobilierului în funcție de spațiul disponibil.",
+            "Organizarea suprafeței de lucru și a depozitării.",
+            "Poziționarea ecranelor și a accesoriilor.",
+            "Iluminat pentru lucru și atmosferă.",
+            "Recomandări pentru echipamente și gestionarea cablurilor."
+          ]
+        },
+        {
+          id: "birouri-corporate",
+          label: "Birouri corporate",
+          title: "Spații de lucru ordonate, plăcute și potrivite echipei tale.",
+          items: [
+            "Propuneri de amenajare pentru posturile de lucru.",
+            "Selectarea mobilierului și a accesoriilor.",
+            "O direcție vizuală unitară, potrivită companiei.",
+            "Recomandări pentru monitoare, periferice și echipamente audio-video.",
+            "Organizarea cablurilor și folosirea eficientă a spațiului."
+          ]
+        }
+      ],
+      cta: "Discută despre acest serviciu",
+      process: {
+        eyebrow: "Cum funcționează",
+        title: "Începem cu spațiul pe care îl ai.",
+        steps: [
+          "Îmi trimiți câteva fotografii, dimensiunile spațiului și bugetul.",
+          "Discutăm ce îți place și de ce ai nevoie.",
+          "Pregătesc propunerea de amenajare și lista de produse recomandate."
+        ],
+        note: "Putem face toate acestea online, în ritmul care îți este comod."
+      },
+      contact: {
+        title: "Hai să găsim varianta potrivită pentru biroul tău.",
+        description: "Trimite-mi câteva poze cu spațiul și spune-mi ce ai vrea să schimbi.",
+        cta: "Hai să vorbim"
+      }
+    },
     portfolio: {
       eyebrow: "Proiecte",
       title: "Câteva dintre proiectele mele",
@@ -393,6 +466,79 @@ export const translations = {
             "I can add a frequently-asked-questions assistant or automate repetitive tasks where that is genuinely useful to you."
         }
       ]
+    },
+    officeDesign: {
+      meta: {
+        title: "Office setup and design | gdevelopment.ro",
+        description: "Online consultation for planning a gaming setup, home office, or corporate office and selecting suitable products.",
+        keywords: "office setup, office design, gaming setup, home office, corporate office, setup consultation",
+        ogLocale: "en_US"
+      },
+      serviceCard: {
+        title: "An office you enjoy spending time in.",
+        description: "I can help you choose furniture, lighting, and equipment for a comfortable, organised space that feels like yours.",
+        cta: "Explore office design services"
+      },
+      hero: {
+        eyebrow: "Setup planning and product selection",
+        title: "Your workspace, planned around you.",
+        description: "For work, gaming, or both, a desk setup should be comfortable and look the way you like. I help you choose and arrange things to fit the space, budget, and how you use it.",
+        note: "Planning and consultation can happen online. The service covers setup planning and product selection; it does not include installation, electrical work, or architectural services."
+      },
+      services: [
+        {
+          id: "gaming-setup",
+          label: "Gaming setup",
+          title: "A setup that feels like yours, where everything has its place.",
+          items: [
+            "Choosing the desk and chair.",
+            "Positioning the monitor, laptop, or PC.",
+            "Recommendations for peripherals and audio equipment.",
+            "Ambient and RGB lighting to match the style you want.",
+            "Organising cables and accessories."
+          ]
+        },
+        {
+          id: "home-office",
+          label: "Home office",
+          title: "A comfortable place to work that fits naturally into your home.",
+          items: [
+            "Choosing furniture based on the available space.",
+            "Organising the work surface and storage.",
+            "Positioning screens and accessories.",
+            "Lighting for work and atmosphere.",
+            "Recommendations for equipment and cable management."
+          ]
+        },
+        {
+          id: "birouri-corporate",
+          label: "Corporate offices",
+          title: "Orderly, pleasant workspaces that suit your team.",
+          items: [
+            "Workspace planning proposals.",
+            "Selecting furniture and accessories.",
+            "A unified visual direction that fits the company.",
+            "Recommendations for monitors, peripherals, and audio-video equipment.",
+            "Cable organisation and efficient use of space."
+          ]
+        }
+      ],
+      cta: "Discuss this service",
+      process: {
+        eyebrow: "How it works",
+        title: "We start with the space you have.",
+        steps: [
+          "You send me a few photos, the space dimensions, and your budget.",
+          "We talk about what you like and what you need.",
+          "I prepare the setup proposal and a list of recommended products."
+        ],
+        note: "We can do all of this online, at a pace that works for you."
+      },
+      contact: {
+        title: "Let's find the right setup for your office.",
+        description: "Send me a few photos of the space and tell me what you would like to change.",
+        cta: "Let's talk"
+      }
     },
     portfolio: {
       eyebrow: "Projects",

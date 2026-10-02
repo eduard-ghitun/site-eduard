@@ -35,6 +35,9 @@ const updateMetaTag = (selector, value) => {
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(getInitialLanguage);
   const t = translations[language] ?? translations[DEFAULT_LANGUAGE];
+  const pageMeta = typeof window !== "undefined" && window.location.pathname === "/design-birouri"
+    ? t.officeDesign.meta
+    : t.meta;
 
   useEffect(() => {
     try {
@@ -46,13 +49,13 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = t.meta.title;
-    updateMetaTag('meta[name="description"]', t.meta.description);
-    updateMetaTag('meta[name="keywords"]', t.meta.keywords);
-    updateMetaTag('meta[property="og:title"]', t.meta.title);
-    updateMetaTag('meta[property="og:description"]', t.meta.description);
-    updateMetaTag('meta[property="og:locale"]', t.meta.ogLocale);
-  }, [language, t]);
+    document.title = pageMeta.title;
+    updateMetaTag('meta[name="description"]', pageMeta.description);
+    updateMetaTag('meta[name="keywords"]', pageMeta.keywords);
+    updateMetaTag('meta[property="og:title"]', pageMeta.title);
+    updateMetaTag('meta[property="og:description"]', pageMeta.description);
+    updateMetaTag('meta[property="og:locale"]', pageMeta.ogLocale);
+  }, [language, pageMeta]);
 
   const setLanguage = (nextLanguage) => {
     if (!translations[nextLanguage]) {

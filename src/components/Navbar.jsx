@@ -6,11 +6,14 @@ import { useLanguage } from "../context/LanguageContext";
 import { useSectionUI } from "../context/SectionUIContext";
 import useNavbarScrolled from "../hooks/useNavbarScrolled";
 
-const Navbar = () => {
+const Navbar = ({ isOfficeDesignPage = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isScrolled = useNavbarScrolled(24);
   const { activeSection } = useSectionUI();
   const { t } = useLanguage();
+  const homeHref = isOfficeDesignPage ? "/" : "#hero";
+  const contactHref = isOfficeDesignPage ? "/#contact" : "#contact";
+  const getNavHref = (href) => (isOfficeDesignPage ? `/${href}` : href);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -21,13 +24,13 @@ const Navbar = () => {
     <>
       <header className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}>
         <nav className="site-container nav-shell" aria-label={t.nav.ariaLabel}>
-          <AnimatedLogo href="#hero" size="navbar" />
+          <AnimatedLogo href={homeHref} size="navbar" />
           <div className="nav-desktop">
             <div className="nav-links">
-              {t.nav.items.map((item) => <a key={item.href} href={item.href} className={activeSection === item.href.slice(1) ? "is-active" : ""}>{item.label}</a>)}
+              {t.nav.items.map((item) => <a key={item.href} href={getNavHref(item.href)} className={!isOfficeDesignPage && activeSection === item.href.slice(1) ? "is-active" : ""}>{item.label}</a>)}
             </div>
             <LanguageSwitcher />
-            <a href="#contact" className="ui-button ui-button--primary nav-cta">{t.nav.cta}</a>
+            <a href={contactHref} className="ui-button ui-button--primary nav-cta">{t.nav.cta}</a>
           </div>
           <div className="nav-mobile-actions">
             <LanguageSwitcher compact />
@@ -40,11 +43,11 @@ const Navbar = () => {
       {isOpen ? (
         <div className="mobile-menu" role="dialog" aria-label={t.nav.ariaLabel}>
           <div className="mobile-menu__panel">
-            <div className="mobile-menu__top"><AnimatedLogo href="#hero" size="navbar" /><button type="button" className="menu-toggle" onClick={() => setIsOpen(false)} aria-label={t.nav.closeMenu}><X size={21} /></button></div>
+            <div className="mobile-menu__top"><AnimatedLogo href={homeHref} size="navbar" /><button type="button" className="menu-toggle" onClick={() => setIsOpen(false)} aria-label={t.nav.closeMenu}><X size={21} /></button></div>
             <div className="mobile-menu__links">
-              {t.nav.items.map((item) => <a key={item.href} href={item.href} onClick={() => setIsOpen(false)} className={activeSection === item.href.slice(1) ? "is-active" : ""}>{item.label}</a>)}
+              {t.nav.items.map((item) => <a key={item.href} href={getNavHref(item.href)} onClick={() => setIsOpen(false)} className={!isOfficeDesignPage && activeSection === item.href.slice(1) ? "is-active" : ""}>{item.label}</a>)}
             </div>
-            <a href="#contact" onClick={() => setIsOpen(false)} className="ui-button ui-button--primary">{t.nav.cta}</a>
+            <a href={contactHref} onClick={() => setIsOpen(false)} className="ui-button ui-button--primary">{t.nav.cta}</a>
           </div>
         </div>
       ) : null}

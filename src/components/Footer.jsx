@@ -1,15 +1,16 @@
 import AnimatedLogo from "./AnimatedLogo";
 import { useLanguage } from "../context/LanguageContext";
 
-const Footer = () => {
+const Footer = ({ isOfficeDesignPage = false }) => {
   const { t } = useLanguage();
+  const getHref = (href) => (isOfficeDesignPage ? `/${href}` : href);
 
   return (
     <footer className="relative border-t border-[rgba(121,255,172,0.1)] py-12 md:py-14">
       <div className="mx-auto w-full max-w-6xl px-4 text-sm text-[color:var(--muted)] md:px-8 lg:px-12">
         <div className="grid gap-7 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           <div className="space-y-3.5">
-            <AnimatedLogo href="#hero" size="footer" animateOnMount={false} />
+            <AnimatedLogo href={isOfficeDesignPage ? "/" : "#hero"} size="footer" animateOnMount={false} />
             <p className="max-w-xs text-sm leading-7 text-[color:var(--text-soft)]">
               {t.footer.description}
             </p>
@@ -21,7 +22,7 @@ const Footer = () => {
               {t.nav.items.map((item) => (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={getHref(item.href)}
                   className="inline-flex min-h-11 items-center text-sm text-[color:var(--text-soft)] transition hover:text-[color:var(--text)]"
                 >
                   {item.label}
@@ -53,7 +54,7 @@ const Footer = () => {
               {t.footer.collaborationText}
             </p>
             <a
-              href="#contact"
+              href={isOfficeDesignPage ? "/#contact" : "#contact"}
               className="ui-button ui-button--secondary w-full px-5 py-2 text-sm md:w-auto"
             >
               {t.footer.cta}
