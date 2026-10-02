@@ -70,6 +70,7 @@ const Portfolio = () => {
       <SectionHeading
         eyebrow={t.portfolio.eyebrow}
         title={t.portfolio.title}
+        description={t.portfolio.description}
       />
 
       <div className="mb-7 flex flex-wrap items-center justify-center gap-2 text-[0.68rem] uppercase tracking-[0.16em] text-[color:var(--muted)] md:mb-9 md:gap-3 md:text-xs">

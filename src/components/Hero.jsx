@@ -13,7 +13,7 @@ const Hero = () => {
           <h1>{t.hero.title.lead} <span>{t.hero.title.accent}</span></h1>
           <p className="hero-description">{t.hero.description}</p>
           <div className="hero-actions">
-            <a href="#servicii" className="ui-button ui-button--primary">
+            <a href="#proiecte" className="ui-button ui-button--primary">
               {t.hero.ctaPrimary}<ArrowRight aria-hidden="true" size={18} />
             </a>
             <a href="#contact" className="ui-button ui-button--secondary">{t.hero.ctaSecondary}</a>

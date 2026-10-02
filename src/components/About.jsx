@@ -28,12 +28,14 @@ const About = () => {
           <h3 className="mt-4 max-w-xl text-balance font-heading text-[2.4rem] font-semibold uppercase leading-[0.96] text-[#f5fff8] md:text-[3.2rem]">
             {t.about.heading}
           </h3>
-          <p className="mt-6 text-base leading-8 text-[color:var(--text-soft)] md:text-lg">
-            {t.about.paragraphs[0]}
-          </p>
-          <p className="mt-4 text-base leading-8 text-[color:var(--text-soft)] md:text-lg">
-            {t.about.paragraphs[1]}
-          </p>
+          {t.about.paragraphs.map((paragraph, index) => (
+            <p
+              key={paragraph}
+              className={`${index === 0 ? "mt-6" : "mt-4"} text-base leading-8 text-[color:var(--text-soft)] md:text-lg`}
+            >
+              {paragraph}
+            </p>
+          ))}
 
           <div className="ui-divider mt-8" />
 

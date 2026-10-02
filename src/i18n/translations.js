@@ -12,192 +12,194 @@ export const translations = {
     meta: {
       title: "Web Developer Cluj-Napoca | Creare Website-uri Moderne | gdevelopment.ro",
       description:
-        "Web developer din Cluj-Napoca specializat in creare website-uri moderne, mentenanta si modernizare site-uri. Solutii web rapide, optimizate si profesioniste.",
+        "Eduard este developer în Cluj-Napoca. Creează site-uri, le îmbunătățește și oferă ajutor pentru prezența online.",
       keywords:
         "web developer Cluj-Napoca, creare site Cluj, dezvoltare website Cluj, mentenanta website Cluj, web development Romania",
       ogLocale: "ro_RO"
     },
     languages: {
-      ro: "Romana",
-      en: "Engleza"
+      ro: "Română",
+      en: "Engleză"
     },
     nav: {
-      ariaLabel: "Navigare principala",
+      ariaLabel: "Navigare principală",
       openMenu: "Deschide meniul",
-      closeMenu: "Inchide meniul",
-      languageSwitcherLabel: "Selecteaza limba",
+      closeMenu: "Închide meniul",
+      languageSwitcherLabel: "Selectează limba",
       items: [
-        { label: "Acasa", href: "#hero" },
+        { label: "Acasă", href: "#hero" },
         { label: "Despre", href: "#despre" },
         { label: "Servicii", href: "#servicii" },
         { label: "Proiecte", href: "#proiecte" },
         { label: "Contact", href: "#contact" }
       ],
-      cta: "Cere oferta",
+      cta: "Hai să vorbim",
       mobileLanguageLabel: "Limba site-ului"
     },
     hero: {
-      kicker: "Web Development • Mentenanta • Microservicii",
+      kicker: "Site-uri • Îmbunătățiri • Integrări",
       title: {
-        lead: "Website-uri",
-        accent: "premium, rapide, memorabile."
+        lead: "Un site care",
+        accent: "să te reprezinte."
       },
       description:
-        "Construiesc website-uri rapide, moderne si optimizate pentru conversie, astfel incat afacerea ta sa inspire incredere si sa atraga mai multi clienti online.",
-      terminalAriaLabel: "Introducere in terminal",
+        "Salut, sunt Eduard. Creez site-uri pentru oameni și afaceri care vor să se prezinte mai bine online. Dacă pornești de la zero sau ai un site care are nevoie de o schimbare, te pot ajuta.",
+      terminalAriaLabel: "Introducere",
       terminalLines: [
         "initializare website...",
         "incarcare componente...",
         "bun venit la GDevelopment"
       ],
-      ctaPrimary: "Vezi serviciile",
-      ctaSecondary: "Discuta proiectul",
-      stats: ["UI premium", "Performanta ridicata", "Experienta optimizata pentru conversie"],
+      ctaPrimary: "Vezi ce am realizat",
+      ctaSecondary: "Hai să vorbim",
+      stats: ["Discuți direct cu mine", "Site adaptat pentru telefon", "Pași clari de la început"],
       process: {
-        label: "Procesul meu",
+        label: "Cum lucrăm împreună",
         status: "Disponibil",
-        title: "Un proces simplu prin care transform ideile tale intr-un website profesional.",
-        description: "De la analiza si design pana la lansare si optimizare pentru rezultate reale.",
+        title: "Punem proiectul în ordine, pas cu pas.",
+        description: "Îți explic ce urmează în fiecare etapă, fără să încărcăm discuția cu termeni tehnici.",
         steps: [
-          "Analizam obiectivele afacerii tale si structura website-ului.",
-          "Construiesc designul si dezvolt website-ul folosind tehnologii moderne.",
-          "Lansam website-ul si il optimizam pentru performanta si conversii."
+          "Îmi spui ce ai nevoie. Vorbim despre afacerea ta, ce vrei să prezinți și ce ai vrea să facă site-ul.",
+          "Stabilim direcția. Punem în ordine paginile, aspectul, funcționalitățile și pașii proiectului.",
+          "Construiesc și verificăm. Realizez site-ul, îți arăt cum prinde contur și discutăm ajustările necesare înainte de lansare."
         ]
       },
       focus: {
-        label: "Prioritate",
-        title: "Website-uri rapide, elegante si construite pentru rezultate reale.",
+        label: "Ce contează",
+        title: "Un site care se explică singur și rămâne ușor de folosit.",
         description:
-          "Fiecare proiect este realizat cu accent pe performanta, experienta de utilizare si o imagine profesionala care inspira incredere."
+          "Pun accent pe informații bine așezate, detalii îngrijite și o experiență simplă pentru oamenii care intră pe site."
       }
     },
     about: {
       eyebrow: "Despre mine",
-      title: "Despre mine",
+      title: "Salut, eu sunt Eduard.",
       description:
-        "Sunt web developer din Cluj-Napoca, cu baza tehnica solida si focus pe creare website-uri moderne, clare si scalabile pentru business-uri care vor crestere reala online.",
-      profileLabel: "Profil profesional",
-      heading: "Construiesc solutii web moderne, stabile si convingatoare vizual.",
+        "Sunt developer în Cluj-Napoca și construiesc site-uri care explică simplu ce oferi.",
+      profileLabel: "Despre mine",
+      heading: "Un site bun trebuie să fie ușor de înțeles și de folosit.",
       paragraphs: [
-        "Am finalizat Facultatea de Automatica si Calculatoare din cadrul Universitatii Tehnice din Cluj-Napoca, iar in proiecte aplic o abordare riguroasa: analiza clara, arhitectura logica si dezvoltare web performanta pentru rezultate masurabile.",
-        "Ofer creare website-uri moderne, mentenanta si modernizare website pentru proiecte existente, plus integrare si dezvoltare de microservicii pentru functionalitati avansate."
+        "Sunt developer în Cluj-Napoca și am absolvit Facultatea de Automatică și Calculatoare la UTCN. Îmi place să construiesc lucruri utile și să acord atenție felului în care arată și se folosesc.",
+        "Pentru mine, un site bun trebuie să explice clar ce oferi și să fie ușor de folosit. Vreau ca oamenii care îl vizitează să găsească repede ce îi interesează și să știe cum să te contacteze.",
+        "Cu mine discuți direct despre proiect: ce ai nevoie, ce se poate face și care sunt pașii următori."
       ],
       highlights: [
         { value: "UTCN", label: "Automatica si Calculatoare" },
-        { value: "UI modern", label: "Design clar si profesionist" },
-        { value: "Scalabil", label: "Integrare microservicii" }
+        { value: "Direct", label: "Vorbim fără intermediar" },
+        { value: "Clar", label: "Explic pe înțelesul tău" }
       ],
       principlesLabel: "Principii",
-      principlesTitle: "Fiecare proiect este gandit ca un sistem clar, nu doar ca un layout.",
+      principlesTitle: "Lucrurile importante pentru mine într-un proiect.",
       principles: [
         {
-          title: "Arhitectura clara",
-          description: "Structura modulara, usor de intretinut si extins pentru proiecte pe termen lung."
+          title: "Înțelegem nevoia",
+          description: "Începem cu ce vrei să comunice site-ul și cu informațiile de care au nevoie vizitatorii."
         },
         {
-          title: "UI bine lucrat",
-          description: "Design curat, cu ierarhie vizuala puternica si atentie la detaliile de interactiune."
+          title: "Păstrăm lucrurile simple",
+          description: "Organizez conținutul astfel încât oamenii să poată parcurge site-ul fără efort."
         },
         {
-          title: "Implementari curate",
-          description: "Cod predictibil, performant, orientat pe stabilitate si scalabilitate."
+          title: "Construim cu grijă",
+          description: "Mă ocup de detaliile tehnice ca site-ul să fie stabil și ușor de actualizat."
         },
         {
-          title: "Livrare orientata pe business",
-          description: "Fiecare decizie tehnica este corelata cu obiectivul real al proiectului."
+          title: "Rămânem în legătură",
+          description: "Discutăm fiecare pas important și ajustăm proiectul înainte de lansare."
         }
       ]
     },
     services: {
       eyebrow: "Servicii",
-      title: "Servicii Web Development",
+      title: "Cu ce te pot ajuta",
       description:
-        "Servicii complete de web development in Cluj: creare website-uri moderne, mentenanta si modernizare website, plus dezvoltare web performanta cu microservicii si integrare AI.",
+        "Poate ai nevoie de primul tău site. Poate vrei să îl îmbunătățești pe cel pe care îl ai deja. Pornim de la ce îți trebuie.",
       introLabel: "Ce ofer",
-      introTitle: "Servicii construite pentru claritate, ritm si rezultate solide.",
-      imageAlt: "Spatiu de lucru pentru web development",
-      availability: "Serviciu disponibil pentru proiecte noi",
+      introTitle: "Alegem împreună ce are sens pentru site-ul tău.",
+      imageAlt: "Spațiu de lucru pentru dezvoltarea unui site",
+      availability: "Îmi poți scrie despre proiectul tău",
       items: [
         {
-          title: "Dezvoltare website",
+          title: "Creare site",
           description:
-            "Dezvolt website-uri rapide, scalabile si curate, construite cu tehnologii moderne si focus pe experienta utilizatorului."
+            "Construiesc un site în care oamenii să înțeleagă ce oferi, să îți descopere serviciile și să te poată contacta ușor."
         },
         {
-          title: "Mentenanta website",
+          title: "Mentenanță",
           description:
-            "Asigur mentenanta continua: update-uri, corectii, monitorizare si optimizare pentru stabilitate pe termen lung."
+            "Mă ocup de actualizări, erori și mici modificări, ca site-ul tău să funcționeze bine și să rămână la zi."
         },
         {
-          title: "Stilizare website",
+          title: "Redesign",
           description:
-            "Imbunatatesc vizual site-uri existente prin UI modern, ierarhie tipografica clara si interactiuni rafinate."
+            "Dacă site-ul nu te mai reprezintă, îi putem schimba aspectul și organizarea, astfel încât să fie mai plăcut și mai ușor de parcurs."
         },
         {
-          title: "Modernizare website",
+          title: "Modernizare",
           description:
-            "Refactorizez si actualizez site-uri vechi pentru performanta mai buna, design actual si cod intretinut corect."
+            "Îmbunătățesc site-urile existente care se încarcă greu, se folosesc dificil sau au nevoie de funcționalități noi."
         },
         {
-          title: "Microservicii",
+          title: "Integrări",
           description:
-            "Pot proiecta, dezvolta si integra microservicii in aplicatii web pentru fluxuri de date mai flexibile si usor de extins."
+            "Conectez site-ul cu alte aplicații și servicii, în funcție de ce ai nevoie să faci."
         },
         {
-          title: "Integrare AI",
+          title: "Funcționalități AI",
           description:
-            "Integrez functionalitati AI in website-uri si aplicatii web pentru automatizare, asistenta conversationala si fluxuri de lucru mai eficiente."
+            "Pot adăuga un asistent pentru întrebări frecvente sau automatizări pentru sarcini repetitive, acolo unde acestea îți sunt utile."
         }
       ]
     },
     portfolio: {
       eyebrow: "Proiecte",
-      title: "Proiecte realizate",
-      tags: ["Inginerie frontend", "UX/UI premium", "Integrare microservicii"],
-      previewAlt: "Preview {title}",
+      title: "Câteva dintre proiectele mele",
+      description: "Uite câteva exemple de site-uri la care am lucrat.",
+      tags: ["Site-uri de prezentare", "Servicii locale", "Proiecte online"],
+      previewAlt: "Previzualizare {title}",
       projectLabel: "Proiect",
       featured: "Recomandat",
       actions: {
-        live: "Vizualizeaza proiectul",
+        live: "Vezi proiectul",
         github: "Vezi pe GitHub",
-        comingSoon: "Link in curand"
+        comingSoon: "Link în curând"
       },
       projects: [
         {
           title: "Proiect avocat",
           description:
-            "Website modern de prezentare pentru un cabinet de avocatura, cu design profesionist, structura clara si interfata orientata spre incredere si conversie.",
+            "Site de prezentare pentru un cabinet de avocatură. Am realizat o interfață profesionistă, gândită pentru a face informațiile ușor de găsit.",
           technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"]
         },
         {
           title: "ServiceAuto",
           description:
-            "Site de prezentare modern pentru service auto, realizat cu design responsive, structura clara si focus pe prezentarea serviciilor intr-un mod profesionist.",
+            "Site de prezentare pentru un service auto. Am realizat varianta responsive și modul de prezentare a serviciilor.",
           technologies: ["React", "Vite", "Design responsive", "UI/UX"]
         },
         {
           title: "NorthSiteCrew",
           description:
-            "Website de prezentare pentru zona automotive, cu layout modern, sectiuni clare pentru servicii si o interfata construita pentru impact vizual si navigare rapida.",
+            "Site de prezentare pentru zona automotive. Am organizat secțiunile dedicate serviciilor și navigarea dintre ele.",
           technologies: ["React", "Vite", "Tailwind CSS", "Design responsive"]
         },
         {
           title: "Proiect DekoConstruct",
           description:
-            "Website de prezentare pentru domeniul constructiilor, gandit pentru o imagine profesionista, structura clara si evidentiere rapida a serviciilor oferite.",
+            "Site de prezentare pentru domeniul construcțiilor. Am realizat paginile care pun în evidență serviciile oferite.",
           technologies: ["React", "Vite", "Tailwind CSS", "Design responsive"]
         }
       ]
     },
     contact: {
       eyebrow: "Contact",
-      title: "Contact Web Developer Cluj",
+      title: "Ai un proiect în minte?",
       description:
-        "Pentru proiecte de web development in Cluj-Napoca sau colaborari remote in Romania, contacteaza-ma direct prin email, telefon sau Instagram.",
-      channelsTitle: "Canale de contact",
-      channelsLead: "Alege metoda preferata",
-      channelsText: "si iti raspund in cel mai scurt timp.",
-      responseNote: "Raspuns rapid in aceeasi zi lucratoare.",
+        "Spune-mi ce ai vrea să construim sau ce te nemulțumește la site-ul actual. Nu trebuie să ai toate detaliile pregătite — le putem clarifica împreună.",
+      channelsTitle: "Cum mă poți contacta",
+      channelsLead: "Alege metoda care îți este mai comodă",
+      channelsText: "și îmi poți scrie direct.",
+      responseNote: "Poți lăsa câteva detalii, iar eu revin către tine.",
       info: [
         {
           id: "email",
@@ -221,30 +223,30 @@ export const translations = {
       ],
       form: {
         nameLabel: "Nume",
-        namePlaceholder: "Numele tau",
+        namePlaceholder: "Numele tău",
         emailLabel: "Email",
         emailPlaceholder: "email@exemplu.ro",
         messageLabel: "Mesaj",
-        messagePlaceholder: "Scrie pe scurt ce iti doresti pentru site...",
-        submit: "Trimite mesajul",
+        messagePlaceholder: "Spune-mi pe scurt cu ce te pot ajuta...",
+        submit: "Scrie-mi despre proiect",
         sending: "Se trimite...",
-        success: "Mesaj trimis cu succes.",
+        success: "Mulțumesc! Mesajul tău a fost trimis.",
         errors: {
-          required: "Completeaza numele, emailul si mesajul inainte de trimitere.",
-          invalidEmail: "Introdu o adresa de email valida.",
+          required: "Completează numele, emailul și mesajul înainte să trimiți.",
+          invalidEmail: "Introdu o adresă de email validă.",
           sendFailure:
-            "Nu am putut trimite mesajul acum. Incearca din nou sau contacteaza-ma direct pe email."
+            "Mesajul nu a plecat acum. Încearcă din nou sau scrie-mi direct pe email."
         }
       }
     },
     footer: {
-      description: "Web development premium, mentenanta si modernizare pentru proiecte serioase.",
+      description: "Site-uri, îmbunătățiri și ajutor pentru prezența ta online.",
       navTitle: "Navigare",
       contactTitle: "Contact",
       collaborationTitle: "Colaborare",
       collaborationText:
-        "Proiecte disponibile pentru Cluj-Napoca si colaborari remote in toata Romania.",
-      cta: "Trimite un mesaj",
+        "Lucrez cu oameni și afaceri din Cluj-Napoca și de la distanță, din toată România.",
+      cta: "Hai să vorbim",
       rightsReserved: "Toate drepturile rezervate.",
       seoLine: "Web Developer Cluj-Napoca | Creare Website-uri Moderne | gdevelopment.ro"
     }
@@ -253,9 +255,9 @@ export const translations = {
     meta: {
       title: "Web Developer in Cluj-Napoca | Modern Websites | gdevelopment.ro",
       description:
-        "Web developer based in Cluj-Napoca, building modern websites, handling maintenance, and upgrading existing sites. Fast, polished, business-focused web solutions.",
+        "Eduard is a web developer in Cluj-Napoca. He builds websites, improves existing ones, and helps with your online presence.",
       keywords:
-        "web developer Cluj-Napoca, website development Cluj, modern websites Romania, website maintenance Cluj, premium web development",
+        "web developer Cluj-Napoca, website development Cluj, modern websites Romania, website maintenance Cluj, web development",
       ogLocale: "en_US"
     },
     languages: {
@@ -274,127 +276,129 @@ export const translations = {
         { label: "Projects", href: "#proiecte" },
         { label: "Contact", href: "#contact" }
       ],
-      cta: "Request a quote",
+      cta: "Let's talk",
       mobileLanguageLabel: "Website language"
     },
     hero: {
-      kicker: "Web Development • Maintenance • Microservices",
+      kicker: "Websites • Improvements • Integrations",
       title: {
-        lead: "Websites",
-        accent: "premium, fast, unforgettable."
+        lead: "A website that",
+        accent: "feels like you."
       },
       description:
-        "I build fast, modern, conversion-focused websites that help your business inspire trust and attract more clients online.",
-      terminalAriaLabel: "Terminal introduction",
+        "Hi, I'm Eduard. I build websites for people and businesses who want to present themselves better online. Whether you are starting from scratch or your current site needs a change, I can help.",
+      terminalAriaLabel: "Introduction",
       terminalLines: [
         "initializing website...",
         "loading components...",
         "welcome to GDevelopment"
       ],
-      ctaPrimary: "View services",
-      ctaSecondary: "Discuss your project",
-      stats: ["Premium UI", "High performance", "Conversion-focused experience"],
+      ctaPrimary: "See my work",
+      ctaSecondary: "Let's talk",
+      stats: ["You talk directly to me", "Built for phones too", "Clear steps from the start"],
       process: {
-        label: "My process",
+        label: "How we work together",
         status: "Available",
-        title: "A simple process that turns your ideas into a professional website.",
-        description: "From strategy and design to launch and refinement for measurable results.",
+        title: "We put the project in order, one step at a time.",
+        description: "I explain what comes next at every stage, without filling the conversation with technical jargon.",
         steps: [
-          "We define your business goals and the right website structure.",
-          "I design and build the website using modern technologies.",
-          "We launch the site and optimize it for performance and conversions."
+          "You tell me what you need. We talk about your work, what you want to show, and what the site should do.",
+          "We set the direction. We arrange the pages, look, features, and project steps.",
+          "I build and we review. I show you how the site is taking shape and we discuss adjustments before launch."
         ]
       },
       focus: {
-        label: "Focus",
-        title: "Fast, elegant websites designed for real business results.",
+        label: "What matters",
+        title: "A website that explains itself and stays easy to use.",
         description:
-          "Every project is crafted with performance, usability, and a professional image that builds trust."
+          "I focus on well-placed information, thoughtful details, and a simple experience for the people visiting the site."
       }
     },
     about: {
       eyebrow: "About me",
-      title: "About me",
+      title: "Hi, I'm Eduard.",
       description:
-        "I am a web developer based in Cluj-Napoca, with a strong technical foundation and a clear focus on building modern, scalable websites for businesses that want real online growth.",
-      profileLabel: "Professional profile",
-      heading: "I build modern web solutions that are stable, polished, and convincing.",
+        "I'm a developer in Cluj-Napoca and I build websites that explain what you offer in a simple way.",
+      profileLabel: "About me",
+      heading: "A good website should be easy to understand and use.",
       paragraphs: [
-        "I graduated from the Faculty of Automation and Computer Science at the Technical University of Cluj-Napoca, and I bring a rigorous mindset to every project: clear analysis, sound architecture, and high-performance web development focused on measurable outcomes.",
-        "I offer modern website creation, ongoing maintenance, and website modernization for existing platforms, along with microservices design and integration for advanced functionality."
+        "I'm a developer in Cluj-Napoca and I graduated from the Faculty of Automation and Computer Science at UTCN. I enjoy building useful things and paying close attention to how they look and feel to use.",
+        "For me, a good website clearly explains what you offer and is easy to use. I want visitors to quickly find what matters to them and know how to get in touch.",
+        "You speak directly with me about the project: what you need, what can be done, and what the next steps are."
       ],
       highlights: [
         { value: "UTCN", label: "Automation and Computer Science" },
-        { value: "Modern UI", label: "Clear, professional design" },
-        { value: "Scalable", label: "Microservices integration" }
+        { value: "Direct", label: "No intermediaries" },
+        { value: "Clear", label: "Plain-language explanations" }
       ],
       principlesLabel: "Principles",
-      principlesTitle: "Every project is shaped as a clear system, not just a layout.",
+      principlesTitle: "What matters to me in a project.",
       principles: [
         {
-          title: "Clear architecture",
-          description: "A modular structure that is easy to maintain and extend over time."
+          title: "Understand the need",
+          description: "We start with what the site needs to say and what visitors need to find."
         },
         {
-          title: "Well-crafted UI",
-          description: "Clean design, strong visual hierarchy, and close attention to interaction details."
+          title: "Keep it simple",
+          description: "I organise the content so people can move through the site without effort."
         },
         {
-          title: "Clean implementation",
-          description: "Predictable, high-performance code built for stability and scalability."
+          title: "Build with care",
+          description: "I handle the technical details so the site is stable and easy to update."
         },
         {
-          title: "Business-driven delivery",
-          description: "Every technical decision is aligned with the real objective of the project."
+          title: "Stay in touch",
+          description: "We discuss each important step and adjust the project before launch."
         }
       ]
     },
     services: {
       eyebrow: "Services",
-      title: "Web Development Services",
+      title: "How I can help",
       description:
-        "Full web development services in Cluj: modern website creation, maintenance, website modernization, plus high-performance development with microservices and AI integration.",
+        "Maybe you need your first website. Maybe you want to improve the one you already have. We start with what you need.",
       introLabel: "What I offer",
-      introTitle: "Services designed for clarity, momentum, and reliable results.",
+      introTitle: "Together, we choose what makes sense for your website.",
       imageAlt: "Web development workspace",
-      availability: "Available for new projects",
+      availability: "Tell me about your project",
       items: [
         {
-          title: "Website development",
+          title: "Website creation",
           description:
-            "I build fast, scalable, clean websites using modern technologies and a strong focus on user experience."
+            "I build a website where people can understand what you offer, explore your services, and contact you easily."
         },
         {
-          title: "Website maintenance",
+          title: "Maintenance",
           description:
-            "I provide ongoing maintenance: updates, fixes, monitoring, and optimization for long-term stability."
+            "I take care of updates, errors, and small changes so your website works well and stays current."
         },
         {
-          title: "Website styling",
+          title: "Redesign",
           description:
-            "I refine existing websites through modern UI, clear typographic hierarchy, and polished interactions."
+            "If your website no longer feels like you, we can change its look and organisation to make it more pleasant and easier to browse."
         },
         {
-          title: "Website modernization",
+          title: "Modernisation",
           description:
-            "I refactor and upgrade older websites for better performance, a more current look, and maintainable code."
+            "I improve existing websites that load slowly, are hard to use, or need new functionality."
         },
         {
-          title: "Microservices",
+          title: "Integrations",
           description:
-            "I can design, build, and integrate microservices into web applications for more flexible and extensible data flows."
+            "I connect your website with other apps and services, depending on what you need it to do."
         },
         {
-          title: "AI integration",
+          title: "AI features",
           description:
-            "I integrate AI capabilities into websites and web apps for automation, conversational assistance, and more efficient workflows."
+            "I can add a frequently-asked-questions assistant or automate repetitive tasks where that is genuinely useful to you."
         }
       ]
     },
     portfolio: {
       eyebrow: "Projects",
-      title: "Selected projects",
-      tags: ["Frontend engineering", "Premium UX/UI", "Microservices integration"],
+      title: "A few of my projects",
+      description: "Here are a few websites I have worked on.",
+      tags: ["Presentation websites", "Local services", "Online projects"],
       previewAlt: "Preview {title}",
       projectLabel: "Project",
       featured: "Featured",
@@ -407,38 +411,38 @@ export const translations = {
         {
           title: "Law Firm Project",
           description:
-            "A modern presentation website for a law firm, with a professional design, clear structure, and an interface built around trust and conversion.",
+            "A presentation website for a law firm. I built a professional interface designed to make important information easy to find.",
           technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"]
         },
         {
           title: "ServiceAuto",
           description:
-            "A modern presentation website for an auto service business, built with responsive design, clear structure, and a polished service showcase.",
+            "A presentation website for an auto service business. I built the responsive version and the service showcase.",
           technologies: ["React", "Vite", "Responsive design", "UI/UX"]
         },
         {
           title: "NorthSiteCrew",
           description:
-            "A presentation website for the automotive space, with a modern layout, clear service sections, and an interface designed for visual impact and fast navigation.",
+            "A presentation website for the automotive space. I organised the service sections and the navigation between them.",
           technologies: ["React", "Vite", "Tailwind CSS", "Responsive design"]
         },
         {
           title: "DekoConstruct Project",
           description:
-            "A presentation website for the construction industry, designed to communicate professionalism, clear structure, and the offered services at a glance.",
+            "A presentation website for the construction industry. I built the pages that bring the offered services into view.",
           technologies: ["React", "Vite", "Tailwind CSS", "Responsive design"]
         }
       ]
     },
     contact: {
       eyebrow: "Contact",
-      title: "Contact a Web Developer in Cluj",
+      title: "Have a project in mind?",
       description:
-        "For web development projects in Cluj-Napoca or remote collaborations across Romania, reach out directly by email, phone, or Instagram.",
-      channelsTitle: "Contact channels",
-      channelsLead: "Choose the contact method that suits you",
-      channelsText: "and I will get back to you as soon as possible.",
-      responseNote: "Fast reply on the same business day.",
+        "Tell me what you would like to build or what you do not like about your current website. You do not need to have every detail ready — we can work it out together.",
+      channelsTitle: "How to reach me",
+      channelsLead: "Choose the option that feels most convenient",
+      channelsText: "and write to me directly.",
+      responseNote: "Leave a few details and I will get back to you.",
       info: [
         {
           id: "email",
@@ -466,24 +470,24 @@ export const translations = {
         emailLabel: "Email",
         emailPlaceholder: "email@example.com",
         messageLabel: "Message",
-        messagePlaceholder: "Briefly tell me what you need for the website...",
-        submit: "Send message",
+        messagePlaceholder: "Briefly tell me how I can help...",
+        submit: "Tell me about your project",
         sending: "Sending...",
-        success: "Message sent successfully.",
+        success: "Thank you! Your message has been sent.",
         errors: {
-          required: "Please complete your name, email, and message before sending.",
+          required: "Please complete your name, email, and message before sending it.",
           invalidEmail: "Please enter a valid email address.",
-          sendFailure: "I could not send your message right now. Please try again or contact me by email."
+          sendFailure: "Your message did not go through just now. Please try again or email me directly."
         }
       }
     },
     footer: {
-      description: "Premium web development, maintenance, and modernization for serious projects.",
+      description: "Websites, improvements, and help with your online presence.",
       navTitle: "Navigation",
       contactTitle: "Contact",
       collaborationTitle: "Collaboration",
-      collaborationText: "Available for projects in Cluj-Napoca and remote collaborations across Romania.",
-      cta: "Send a message",
+      collaborationText: "I work with people and businesses in Cluj-Napoca and remotely across Romania.",
+      cta: "Let's talk",
       rightsReserved: "All rights reserved.",
       seoLine: "Web Developer in Cluj-Napoca | Modern Websites | gdevelopment.ro"
     }
