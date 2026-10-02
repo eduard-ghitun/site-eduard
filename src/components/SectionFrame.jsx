@@ -11,9 +11,6 @@ const SectionFrame = ({ id, className = "", children }) => {
       data-section={id}
       className={`site-section ${isActive ? "site-section--active" : ""} ${isHighlighted ? "site-section--highlighted" : ""} ${className}`}
     >
-      <div aria-hidden="true" className="site-section__glow" />
-      <div aria-hidden="true" className="site-section__scan" />
-      <div aria-hidden="true" className="site-section__outline" />
       {children}
     </section>
   );

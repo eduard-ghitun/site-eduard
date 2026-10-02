@@ -98,13 +98,17 @@ export const SectionUIProvider = ({ children }) => {
 
     const handleHashChange = () => {
       const sectionId = getHashTarget(window.location.hash);
+      const target = document.getElementById(sectionId);
 
-      if (!sectionId || !document.getElementById(sectionId)) {
+      if (!sectionId || !target) {
         return;
       }
 
       setActiveSection(sectionId);
       highlightSection(sectionId, 1400);
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+      });
     };
 
     document.addEventListener("click", handleClick);

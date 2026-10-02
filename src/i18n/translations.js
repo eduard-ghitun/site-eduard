@@ -50,8 +50,8 @@ export const translations = {
         "incarcare componente...",
         "bun venit la GDevelopment"
       ],
-      ctaPrimary: "Vezi portofoliul",
-      ctaSecondary: "Cere o oferta gratuita",
+      ctaPrimary: "Vezi serviciile",
+      ctaSecondary: "Discuta proiectul",
       stats: ["UI premium", "Performanta ridicata", "Experienta optimizata pentru conversie"],
       process: {
         label: "Procesul meu",
@@ -291,8 +291,8 @@ export const translations = {
         "loading components...",
         "welcome to GDevelopment"
       ],
-      ctaPrimary: "View portfolio",
-      ctaSecondary: "Request a free quote",
+      ctaPrimary: "View services",
+      ctaSecondary: "Discuss your project",
       stats: ["Premium UI", "High performance", "Conversion-focused experience"],
       process: {
         label: "My process",
