@@ -2,7 +2,11 @@ import { useEffect } from "react";
 
 const setViewportHeight = () => {
   const height = window.visualViewport?.height ?? window.innerHeight;
-  document.documentElement.style.setProperty("--app-height", `${height}px`);
+  const nextHeight = `${Math.round(height)}px`;
+
+  if (document.documentElement.style.getPropertyValue("--app-height") !== nextHeight) {
+    document.documentElement.style.setProperty("--app-height", nextHeight);
+  }
 };
 
 const useAppViewportHeight = () => {
@@ -11,18 +15,33 @@ const useAppViewportHeight = () => {
       return undefined;
     }
 
+    let frameId = 0;
+    const scheduleViewportUpdate = () => {
+      if (frameId) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = 0;
+        setViewportHeight();
+      });
+    };
+
     setViewportHeight();
 
-    const handleResize = () => setViewportHeight();
-
-    window.addEventListener("resize", handleResize);
-    window.visualViewport?.addEventListener("resize", handleResize);
-    window.visualViewport?.addEventListener("scroll", handleResize);
+    window.addEventListener("resize", scheduleViewportUpdate, { passive: true });
+    window.addEventListener("orientationchange", scheduleViewportUpdate, { passive: true });
+    window.visualViewport?.addEventListener("resize", scheduleViewportUpdate, { passive: true });
+    window.visualViewport?.addEventListener("scroll", scheduleViewportUpdate, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.visualViewport?.removeEventListener("resize", handleResize);
-      window.visualViewport?.removeEventListener("scroll", handleResize);
+      window.removeEventListener("resize", scheduleViewportUpdate);
+      window.removeEventListener("orientationchange", scheduleViewportUpdate);
+      window.visualViewport?.removeEventListener("resize", scheduleViewportUpdate);
+      window.visualViewport?.removeEventListener("scroll", scheduleViewportUpdate);
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
     };
   }, []);
 };

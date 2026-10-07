@@ -10,6 +10,21 @@ const getHashTarget = (value) => {
   return value.startsWith("#") ? value.slice(1) : value;
 };
 
+const getNavbarOffset = () => {
+  const navbar = document.querySelector(".nav-shell");
+  return Math.max(0, Math.ceil(navbar?.getBoundingClientRect().bottom ?? 0));
+};
+
+const scrollToSection = (target, behavior = "smooth") => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const top = Math.max(
+    0,
+    window.scrollY + target.getBoundingClientRect().top - getNavbarOffset()
+  );
+
+  window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : behavior });
+};
+
 export const SectionUIProvider = ({ children }) => {
   const [activeSection, setActiveSection] = useState("hero");
   const [highlightedSection, setHighlightedSection] = useState("");
@@ -85,15 +100,23 @@ export const SectionUIProvider = ({ children }) => {
 
   useEffect(() => {
     const handleClick = (event) => {
-      const link = event.target.closest("a[href^='#']");
-      const sectionId = getHashTarget(link?.getAttribute("href"));
-
-      if (!sectionId || !document.getElementById(sectionId)) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return;
       }
 
+      const link = event.target.closest("a[href^='#']");
+      const sectionId = getHashTarget(link?.getAttribute("href"));
+      const target = document.getElementById(sectionId);
+
+      if (!sectionId || !target) {
+        return;
+      }
+
+      event.preventDefault();
       setActiveSection(sectionId);
       highlightSection(sectionId);
+      window.history.pushState(null, "", `#${sectionId}`);
+      scrollToSection(target);
     };
 
     const handleHashChange = () => {
@@ -106,9 +129,7 @@ export const SectionUIProvider = ({ children }) => {
 
       setActiveSection(sectionId);
       highlightSection(sectionId, 1400);
-      window.requestAnimationFrame(() => {
-        target.scrollIntoView({ behavior: "auto", block: "start" });
-      });
+      window.requestAnimationFrame(() => scrollToSection(target, "auto"));
     };
 
     document.addEventListener("click", handleClick);

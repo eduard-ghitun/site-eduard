@@ -272,6 +272,12 @@ export const translations = {
       channelsTitle: "Cum mă poți contacta",
       channelsLead: "Alege metoda care îți este mai comodă",
       channelsText: "și îmi poți scrie direct.",
+      contactCta: {
+        eyebrow: "Pentru un proiect nou",
+        title: "Contactează-mă",
+        description: "Scrie-mi direct și discutăm ce ar avea sens pentru proiectul tău.",
+        action: "Trimite un email"
+      },
       responseNote: "Poți lăsa câteva detalii, iar eu revin către tine.",
       info: [
         {
@@ -588,6 +594,12 @@ export const translations = {
       channelsTitle: "How to reach me",
       channelsLead: "Choose the option that feels most convenient",
       channelsText: "and write to me directly.",
+      contactCta: {
+        eyebrow: "For a new project",
+        title: "Get in touch",
+        description: "Email me directly and we can talk through what makes sense for your project.",
+        action: "Send an email"
+      },
       responseNote: "Leave a few details and I will get back to you.",
       info: [
         {
